@@ -49,6 +49,8 @@ jobs:
       run: npm i @swimlane/ngx-charts
     - name: instalar chart js
       run: npm install chart.js --save
+    - name: instalar chart ng2
+      run: npm install ng2-charts chart.js --save
     - name: Version angular ClI
       run: ng --version
     - name: Build with NPM
