@@ -60,7 +60,7 @@ jobs:
       run: mvn -B package --file pom.xml
       working-directory: frontend
     - name: Deploy in Tomcat
-      run: mvn tomcat7:deploy
+      run: mvn tomcat7:redeploy
       working-directory: frontend
       env:
         USER_NAME: ${{ secrets.USER_NAME }}
