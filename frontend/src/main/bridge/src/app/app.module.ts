@@ -49,13 +49,6 @@ import { DialogModule } from 'primeng/dialog';
 import { TableModule } from 'primeng/table';
 import { BridgesTableComponent } from './components/bridges-table/bridges-table.component';
 
-import { CalendarModule } from 'primeng/calendar';
-import { SliderModule } from 'primeng/slider';
-import { MultiSelectModule } from 'primeng/multiselect';
-import { ContextMenuModule } from 'primeng/contextmenu';
-import { DropdownModule } from 'primeng/dropdown';
-import { ProgressBarModule } from 'primeng/progressbar';
-
 @NgModule({
   declarations: [
     AppComponent,
