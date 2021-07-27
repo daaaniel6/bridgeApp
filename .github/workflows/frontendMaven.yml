@@ -50,7 +50,7 @@ jobs:
     - name: instalar chart js
       run: npm install chart.js@2.9.4
     - name: instalar chart ng2
-      run: npm install ng2-charts@2.3.0
+      run: npm install ng2-charts@2.4.2
     - name: Version angular ClI
       run: ng --version
     - name: Build with NPM
