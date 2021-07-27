@@ -35,9 +35,9 @@ import { EditRegisterComponent } from './pages/edit-register/edit-register.compo
 import { DeleteRegisterComponent } from './pages/delete-register/delete-register.component';
 
 //charts
-import { ChartsModule } from 'ng2-charts';
-import { ChartModule } from 'primeng/chart';
-import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+// import { ChartsModule } from 'ng2-charts';
+// import { ChartModule } from 'primeng/chart';
+// import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
@@ -60,7 +60,7 @@ import { BridgesTableComponent } from './components/bridges-table/bridges-table.
     NewRegisterComponent,
     EditRegisterComponent,
     DeleteRegisterComponent,
-    BarChartComponent,
+    //BarChartComponent,
     PieChartComponent,
     BridgesTableComponent,
   ],
@@ -81,8 +81,8 @@ import { BridgesTableComponent } from './components/bridges-table/bridges-table.
     MessageModule,
     CarouselModule,
     ToastModule,
-    ChartsModule,
-    ChartModule,
+    //ChartsModule,
+    //ChartModule,
     NgxChartsModule,
     DialogModule,
     TableModule,
