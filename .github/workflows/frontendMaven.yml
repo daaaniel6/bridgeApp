@@ -45,6 +45,10 @@ jobs:
       run: npm install --save-dev @angular-devkit/build-angular
     - name: Guardar angular ClI 2
       run: npm i --save-dev @angular/compiler-cli
+    - name: instalar ngx
+      run: npm i @swimlane/ngx-charts
+    - name: instalar chart js
+      run: npm install chart.js --save
     - name: Version angular ClI
       run: ng --version
     - name: Build with NPM
