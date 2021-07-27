@@ -1,0 +1,61 @@
+# This workflow will build a Java project with Maven
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+name: DEV Deploy and test
+
+on:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+    - name: Set up Node 14.17.2
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.17.2'
+    - uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+    - name: Actualizar NPM
+      run: npm i -g npm-check-updates
+      working-directory: frontend/src/main/bridge
+    - name: Limpiar NPM
+      run: ncu -u
+      working-directory: frontend/src/main/bridge
+    - name: Instalar dependencias NPM
+      run: npm install
+      working-directory: frontend/src/main/bridge
+    - name: Instalar angular ClI
+      run: npm install -g @angular/cli@12.1.2
+    - name: Guardar angular ClI
+      run: npm install --save-dev @angular-devkit/build-angular
+    - name: Guardar angular ClI 2
+      run: npm i --save-dev @angular/compiler-cli
+    - name: Version angular ClI
+      run: ng --version
+    - name: Build with NPM
+      run: npm run buildProduction
+      working-directory: frontend/src/main/bridge
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: frontend
+    - name: Deploy in Tomcat
+      run: mvn tomcat7:redeploy
+      working-directory: mavenApp/epsFrontend
+      env:
+        USER_NAME: ${{ secrets.USER_NAME }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
