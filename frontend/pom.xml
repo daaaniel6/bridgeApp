@@ -68,7 +68,7 @@
           <version>1.6</version>
 
           <configuration>
-            <workingDirectory>src/main/cunoc</workingDirectory>
+            <workingDirectory>src/main/bridge</workingDirectory>
           </configuration>
 
           <executions>
