@@ -133,7 +133,7 @@
             <!--                                Descomentar para pruebas en AWS-->
             <username>${env.USER_NAME}</username>
             <password>${env.ACCESS_TOKEN}</password>
-            <path>/bridgeApp</path>
+            <path>/frontend</path>
           </configuration>
         </plugin>
       </plugins>
