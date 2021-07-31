@@ -1,0 +1,26 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img
+      src="../../../assets/images/puente.png"
+      height="40"
+      class="p-mr-2"
+      alt="brand logo"
+      routerLink="/"
+    />
+  </ng-template>
+  <ng-template pTemplate="end">
+    <p-avatar
+      icon="pi pi-user"
+      pBadge
+      value="4"
+      styleClass="p-mr-2"
+      size="large"
+      [style]="{ 'background-color': '#9c27b0', color: '#ffffff' }"
+      (click)="menu.toggle($event)"
+    ></p-avatar>
+  </ng-template>
+</p-menubar>
+<p-menu #menu [popup]="true" [model]="itemsUser"></p-menu>
+<!-- <p-messages [(value)]="msgs1" [enableService]="false"></p-messages> -->
+<!-- <p-messages></p-messages> -->
+<p-toast></p-toast>
