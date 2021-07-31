@@ -83,7 +83,7 @@ export class MenubarComponent implements OnInit {
                 label: 'Registro de puente existente',
                 icon: 'pi pi-fw pi-bookmark',
                 command: (click) => {
-                  this.delete();
+                  this.addMessage();
                 },
               },
               {
@@ -167,5 +167,14 @@ export class MenubarComponent implements OnInit {
 
   redirectToPage(page: string) {
     this.route.navigate([page]);
+  }
+
+  addMessage() {
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Service Message',
+      detail: 'Via MessageService',
+      sticky: true,
+    });
   }
 }

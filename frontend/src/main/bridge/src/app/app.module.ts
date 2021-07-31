@@ -21,6 +21,8 @@ import { MenuModule } from 'primeng/menu';
 // sirve para el meni del usuario
 import { RippleModule } from 'primeng/ripple';
 //mensaejes
+import { ToastModule } from 'primeng/toast';
+
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -28,7 +30,6 @@ import { Page404Component } from './pages/page404/page404.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 //carousel
 import { CarouselModule } from 'primeng/carousel';
-import { ToastModule } from 'primeng/toast';
 
 import { NewRegisterComponent } from './pages/new-register/new-register.component';
 import { EditRegisterComponent } from './pages/edit-register/edit-register.component';
