@@ -9,6 +9,14 @@ import { PrimeNGConfig } from 'primeng/api';
 export class NewRegisterComponent implements OnInit {
   puenteForm: boolean = false;
   generalForm: boolean = false;
+  tramosForm: boolean = false;
+  entradaForm: boolean = false;
+  salidaForm: boolean = false;
+  pilasForm: boolean = false;
+  superForm: boolean = false;
+  elementosForm: boolean = false;
+  cauceForm: boolean = false;
+  otrosForm: boolean = false;
 
   constructor(private primengConfig: PrimeNGConfig) {}
 

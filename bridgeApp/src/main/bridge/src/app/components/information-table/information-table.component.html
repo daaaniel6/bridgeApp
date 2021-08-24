@@ -1,0 +1,141 @@
+<table class="container">
+  <!-- <thead>
+    <tr>
+      <th><h1>Sites</h1></th>
+      <th><h1>Views</h1></th>
+      <th><h1>Clicks</h1></th>
+      <th><h1>Average</h1></th>
+    </tr>
+  </thead> -->
+  <tbody>
+    <tr>
+      <td>
+        <span class="p-float-label">
+          <input class="input" id="float-input" type="text" pInputText />
+          <label class="label" for="float-input">Nombre del puente</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label" for="float-input">Codigo</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label" for="float-input">Ruta</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label" for="float-input">Kilometraje</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div>
+          <label class="label" for="float-input">Departamento</label>
+        </div>
+        <p-dropdown
+          [options]="cities"
+          optionLabel="name"
+          optionValue="code"
+          placeholder="Departamento"
+          class="dropdown"
+        ></p-dropdown>
+      </td>
+      <td colspan="2">
+        <div>
+          <label class="label" for="float-input">Municipio</label>
+        </div>
+        <p-dropdown
+          [options]="cities"
+          optionLabel="name"
+          optionValue="code"
+          placeholder="Municipio"
+        ></p-dropdown>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <div>
+          <label class="label" for="float-input">Ruta pavimentada</label>
+        </div>
+        <p-dropdown
+          [options]="rutaPavimentada"
+          optionLabel="name"
+          optionValue="code"
+          placeholder="Ruta pavimentada"
+        >
+        </p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input">Alineamiento Horizontal</label>
+        </div>
+        <p-dropdown
+          [options]="alineamientoHorizontal"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Alineacion horizontal"
+        >
+        </p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input">Esviaje / Sesgo</label>
+        </div>
+        <p-dropdown
+          [options]="esviaje"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Esviaje / Sesgo"
+        >
+        </p-dropdown>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Coordenadas UTM</td>
+      <td>
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Norte</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Este</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Poblacion ANTES del puente (Nombre)</td>
+      <td colspan="2">
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Nombre</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">Poblacion DESPUES del puente (Nombre)</td>
+      <td colspan="2">
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Nombre</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td>GitHub</td>
+      <td>4623</td>
+      <td>3486</td>
+      <td>00:31:52</td>
+    </tr>
+  </tbody>
+</table>

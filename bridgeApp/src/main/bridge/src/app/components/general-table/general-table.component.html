@@ -1,0 +1,188 @@
+<table class="container">
+  <!-- <thead>
+    <tr>
+      <th><h1>Sites</h1></th>
+      <th><h1>Views</h1></th>
+      <th><h1>Clicks</h1></th>
+      <th><h1>Average</h1></th>
+    </tr>
+  </thead> -->
+  <tbody>
+    <tr>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input">Longitud (m)</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber [inputStyle]="{ width: '100%' }" inputId="integeronly">
+          </p-inputNumber>
+          <label class="label" for="float-input">Numero de tramos</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input">Ancho rodadura (m)</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input">Ancho acera (m) der.</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input">Ancho acera (m) izq.</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Tipologia del puente</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input"
+            >Altura libre superior (m)</label
+          >
+        </span>
+      </td>
+      <td colspan="2">
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input"
+            >Altura libre sobre el rio (m)</label
+          >
+        </span>
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="2">
+        <div>
+          <label class="label" for="float-input">Puente sobre</label>
+        </div>
+        <p-dropdown
+          [options]="puenteSobre"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Puente sobre"
+          [editable]="true"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber [inputStyle]="{ width: '100%' }"> </p-inputNumber>
+          <label class="label" for="float-input"
+            >Numero de vias en cada sentido</label
+          >
+        </span>
+      </td>
+      <td colspan="2">
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Material superestructura</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Carga de diseño</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber [inputStyle]="{ width: '100%' }"> </p-inputNumber>
+          <label class="label" for="float-input">Año de construccion</label>
+        </span>
+      </td>
+      <td colspan="2">
+        <span class="p-float-label">
+          <input class="input" type="text" pInputText />
+          <label class="label">Material subestructura</label>
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input">Trafico (veh/dia)</label>
+        </span>
+      </td>
+      <td>
+        <span class="p-float-label">
+          <p-inputNumber
+            [inputStyle]="{ width: '100%' }"
+            mode="decimal"
+            locale="en-US"
+            [minFractionDigits]="2"
+          ></p-inputNumber>
+          <label class="label" for="float-input">% Camiones y buses</label>
+        </span>
+      </td>
+      <td colspan="2">
+        <span class="p-float-label">
+          <p-calendar
+            dateFormat="mm-dd-yy"
+            [monthNavigator]="true"
+            [yearNavigator]="true"
+            yearRange="1000:3030"
+            [touchUI]="true"
+            [showIcon]="true"
+            appendTo="body"
+            [baseZIndex]="999999"
+          ></p-calendar>
+          <label class="label" for="float-input">Fecha ultima evaluacion</label>
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>

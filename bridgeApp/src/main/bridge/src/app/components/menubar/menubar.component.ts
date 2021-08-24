@@ -83,7 +83,7 @@ export class MenubarComponent implements OnInit {
                 label: 'Registro de puente existente',
                 icon: 'pi pi-fw pi-bookmark',
                 command: (click) => {
-                  this.addMessage();
+                  this.redirectToPage('/selectBridge');
                 },
               },
               {

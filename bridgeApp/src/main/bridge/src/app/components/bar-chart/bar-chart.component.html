@@ -1,1 +1,17 @@
-<h1>barras</h1>
+<div class="graphical-container">
+  <ngx-charts-bar-vertical
+    scheme="cool"
+    [results]="single"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    (select)="onSelect($event)"
+    [gradient]="true"
+  >
+  </ngx-charts-bar-vertical>
+</div>

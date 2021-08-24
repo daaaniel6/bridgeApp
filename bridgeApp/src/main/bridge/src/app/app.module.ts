@@ -12,7 +12,7 @@ import { PanelMenuModule } from 'primeng/panelmenu';
 import { MenubarComponent } from './components/menubar/menubar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
+
 // sirve para el ng-tamplate
 import { SharedModule } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
@@ -49,6 +49,28 @@ import { DialogModule } from 'primeng/dialog';
 //tablas
 import { TableModule } from 'primeng/table';
 import { BridgesTableComponent } from './components/bridges-table/bridges-table.component';
+import { BridgeSelectedComponent } from './pages/bridge-selected/bridge-selected.component';
+
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { InformationTableComponent } from './components/information-table/information-table.component';
+
+// inputtext
+import { InputTextModule } from 'primeng/inputtext';
+import { InputNumberModule } from 'primeng/inputnumber';
+
+import { DropdownModule } from 'primeng/dropdown';
+import { GeneralTableComponent } from './components/general-table/general-table.component';
+
+//calendar
+import { CalendarModule } from 'primeng/calendar';
+import { TramoTableComponent } from './components/tramo-table/tramo-table.component';
+import { EntradaTableComponent } from './components/entrada-table/entrada-table.component';
+import { SalidaTableComponent } from './components/salida-table/salida-table.component';
+import { PilasTableComponent } from './components/pilas-table/pilas-table.component';
+import { SuperTableComponent } from './components/super-table/super-table.component';
+import { ElementosTableComponent } from './components/elementos-table/elementos-table.component';
+import { CauceTableComponent } from './components/cauce-table/cauce-table.component';
+import { OtrosTableComponent } from './components/otros-table/otros-table.component';
 
 @NgModule({
   declarations: [
@@ -61,9 +83,20 @@ import { BridgesTableComponent } from './components/bridges-table/bridges-table.
     NewRegisterComponent,
     EditRegisterComponent,
     DeleteRegisterComponent,
-    //BarChartComponent,
+    BarChartComponent,
     PieChartComponent,
     BridgesTableComponent,
+    BridgeSelectedComponent,
+    InformationTableComponent,
+    GeneralTableComponent,
+    TramoTableComponent,
+    EntradaTableComponent,
+    SalidaTableComponent,
+    PilasTableComponent,
+    SuperTableComponent,
+    ElementosTableComponent,
+    CauceTableComponent,
+    OtrosTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,6 +120,9 @@ import { BridgesTableComponent } from './components/bridges-table/bridges-table.
     NgxChartsModule,
     DialogModule,
     TableModule,
+    DropdownModule,
+    InputNumberModule,
+    CalendarModule,
   ],
   exports: [NgxChartsModule],
   providers: [],
