@@ -10,19 +10,18 @@
   <ng-template pTemplate="header">
     <h2>Mis registros de puentes</h2>
   </ng-template>
-  <ng-template let-product pTemplate="item">
+  <ng-template let-bridge pTemplate="item">
     <div class="product-item">
       <div class="product-item-content">
-        <div class="p-mb-3"></div>
+        <div class="p-mb-3">
+          <img class="product-image" src="{{ bridge.image }}" alt="" />
+        </div>
         <div>
-          <h4 class="p-mb-1">{{ product.name }}</h4>
-          <h6 class="p-mt-0 p-mb-3">${{ product.price }}</h6>
-          <span
-            [class]="
-              'product-badge status-' + product.inventoryStatus.toLowerCase()
-            "
-            >{{ product.inventoryStatus }}</span
-          >
+          <h4 class="p-mb-1">{{ bridge.name }}</h4>
+          <h6 class="p-mt-0 p-mb-3">${{ bridge.price }}</h6>
+          <span class="status" [ngClass]="bridge.status">{{
+            bridge.status
+          }}</span>
           <div class="car-buttons p-mt-5">
             <p-button
               type="button"

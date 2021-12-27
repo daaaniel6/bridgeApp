@@ -72,6 +72,15 @@ import { ElementosTableComponent } from './components/elementos-table/elementos-
 import { CauceTableComponent } from './components/cauce-table/cauce-table.component';
 import { OtrosTableComponent } from './components/otros-table/otros-table.component';
 
+//imagenes
+import { FileUploadModule } from 'primeng/fileupload';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { PageHeaderComponent } from './components/page-header/page-header.component';
+import { InfoBoxesComponent } from './components/info-boxes/info-boxes.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { LoginComponent } from './pages/login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,6 +106,12 @@ import { OtrosTableComponent } from './components/otros-table/otros-table.compon
     ElementosTableComponent,
     CauceTableComponent,
     OtrosTableComponent,
+    SidebarComponent,
+    NavbarComponent,
+    PageHeaderComponent,
+    InfoBoxesComponent,
+    FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -123,6 +138,7 @@ import { OtrosTableComponent } from './components/otros-table/otros-table.compon
     DropdownModule,
     InputNumberModule,
     CalendarModule,
+    FileUploadModule,
   ],
   exports: [NgxChartsModule],
   providers: [],

@@ -1,1 +1,124 @@
-<p>otros-table works!</p>
+<table class="container">
+  <tbody>
+    <tr>
+      <td>
+        <div>
+          <label class="label" for="float-input">Informativa</label>
+        </div>
+        <p-dropdown
+          [options]="signalingOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Informativa"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input">Preventiva</label>
+        </div>
+        <p-dropdown
+          [options]="signalingOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Preventiva"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input">Reglamentaria</label>
+        </div>
+        <p-dropdown
+          [options]="signalingOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Reglamentaria"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input">Horizontal</label>
+        </div>
+        <p-dropdown
+          [options]="signalingOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Horizontal"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <div>
+          <label class="label" for="float-input"
+            >Alumbradro artificial (existe)</label
+          >
+        </div>
+        <p-dropdown
+          [options]="booleanOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Seleccione una opcion"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input"
+            >Drenajes aledaños al puente</label
+          >
+        </div>
+        <p-dropdown
+          [options]="booleanOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Seleccione una opcion"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+      <td>
+        <div>
+          <label class="label" for="float-input">Estado del drenaje</label>
+        </div>
+        <p-dropdown
+          [options]="statusOptions"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Seleccione una opcion"
+          [virtualScroll]="true"
+        ></p-dropdown>
+      </td>
+    </tr>
+
+    <tr>
+      <td>RECOMENDACIONES</td>
+      <td colspan="3">
+        <textarea
+          [rows]="8"
+          [cols]="60"
+          pInputTextarea
+          autoResize="autoResize"
+        ></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>REPARACION</td>
+      <td colspan="3">
+        <textarea
+          [rows]="8"
+          [cols]="60"
+          pInputTextarea
+          autoResize="autoResize"
+        ></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <!-- <p-fileUpload></p-fileUpload> -->
+      </td>
+    </tr>
+  </tbody>
+</table>

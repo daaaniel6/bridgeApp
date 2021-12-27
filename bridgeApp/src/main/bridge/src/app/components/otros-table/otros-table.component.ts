@@ -3,13 +3,25 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-otros-table',
   templateUrl: './otros-table.component.html',
-  styleUrls: ['./otros-table.component.scss']
+  styleUrls: ['./otros-table.component.scss'],
 })
 export class OtrosTableComponent implements OnInit {
+  signalingOptions = [
+    { label: 'Hay', value: 'Hay' },
+    { label: 'No hay', value: 'No hay' },
+  ];
 
-  constructor() { }
+  booleanOptions = [
+    { label: 'Si', value: 'Si' },
+    { label: 'No', value: 'No' },
+  ];
 
-  ngOnInit(): void {
-  }
+  statusOptions = [
+    { label: 'Bueno', value: 'Bueno' },
+    { label: 'Malo', value: 'Malo' },
+  ];
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }

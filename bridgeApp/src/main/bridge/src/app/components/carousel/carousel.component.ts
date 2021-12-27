@@ -15,7 +15,7 @@ export class CarouselComponent implements OnInit {
       description: 'Puente de izabal',
       price: 12,
       quantity: 1,
-      inventoryStatus: 'INSTOCKE',
+      status: 'Malo',
       category: 'elemental',
       image: '../../../assets/images/puentes/puente1.jpeg',
       rating: 2,
@@ -27,10 +27,9 @@ export class CarouselComponent implements OnInit {
       description: 'Carousel',
       price: 1,
       quantity: 1,
-      inventoryStatus: 'true',
+      status: 'Regular',
       category: 'elemental',
-      image:
-        'https://viajes.nationalgeographic.com.es/medio/2019/07/02/golden-gate-san-francisco_5c0925d4_1500x1000.jpg',
+      image: '../../../assets/images/puentes/puente2.jpeg',
       rating: 2,
     },
     {
@@ -40,9 +39,10 @@ export class CarouselComponent implements OnInit {
       description: 'Carousel',
       price: 1,
       quantity: 1,
-      inventoryStatus: 'true',
+      status: 'Bueno',
       category: 'elemental',
-      image: '',
+      image:
+        'https://viajes.nationalgeographic.com.es/medio/2019/07/02/golden-gate-san-francisco_5c0925d4_1500x1000.jpg',
       rating: 2,
     },
     {
@@ -52,9 +52,9 @@ export class CarouselComponent implements OnInit {
       description: 'Carousel',
       price: 1,
       quantity: 1,
-      inventoryStatus: 'true',
+      status: 'Malo',
       category: 'elemental',
-      image: '',
+      image: '../../../assets/images/puentes/puente3.jpeg',
       rating: 2,
     },
   ]; //
