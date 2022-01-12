@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -79,7 +81,18 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageHeaderComponent } from './components/page-header/page-header.component';
 import { InfoBoxesComponent } from './components/info-boxes/info-boxes.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import { RegisterComponent } from './auth/register.component';
+
+//Login
+import { LogComponent } from './auth/log.component';
+import { LoginComponent } from './auth/login.component';
+
+//not external
+import { interceptorProvider } from './interceptors/prod-interceptor.service';
+
+//Services
+import { LoadScriptsService } from './services/load-scripts.service';
 
 @NgModule({
   declarations: [
@@ -111,7 +124,10 @@ import { LoginComponent } from './pages/login/login.component';
     PageHeaderComponent,
     InfoBoxesComponent,
     FooterComponent,
+    HomeComponent,
+    LogComponent,
     LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,9 +155,11 @@ import { LoginComponent } from './pages/login/login.component';
     InputNumberModule,
     CalendarModule,
     FileUploadModule,
+    FormsModule,
+    HttpClientModule,
   ],
   exports: [NgxChartsModule],
-  providers: [],
+  providers: [interceptorProvider, LoadScriptsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

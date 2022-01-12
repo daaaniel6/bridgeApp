@@ -1,0 +1,163 @@
+<div class="container">
+  <section id="formHolder">
+    <div class="row">
+      <!-- Brand Box -->
+      <div class="col-sm-6 brand">
+        <a href="#" class="logo">DG <span>.</span></a>
+
+        <div class="heading">
+          <h2>Puentes</h2>
+          <p>Bienvenido a la APP</p>
+        </div>
+
+        <div class="success-msg">
+          <p>Great! You are one of our members now</p>
+          <a href="#" class="profile">Your Profile</a>
+        </div>
+      </div>
+
+      <!-- Form Box -->
+      <div class="col-sm-6 form">
+        <!-- Login Form -->
+        <div class="signup form-peice">
+          <form
+            class="login-form"
+            #f="ngForm"
+            (ngSubmit)="onLogin()"
+            novalidate
+          >
+            <div class="form-group">
+              <label for="username">Nombre de usuario</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                [(ngModel)]="username"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Contraseña</label>
+              <input
+                type="password"
+                class="pass"
+                id="password"
+                name="password"
+                [(ngModel)]="password"
+                required
+              />
+            </div>
+
+            <div class="CTA">
+              <input
+                type="submit"
+                value="Login"
+                [disabled]="!f.valid"
+                class="btn btn-outline-success btn-block"
+              />
+              <a style="cursor: pointer" class="switch">Soy nuevo</a>
+            </div>
+          </form>
+          <div
+            *ngIf="f.submitted && isLoginFail"
+            class="alert alert-danger mt-1"
+          >
+            Fail en el login: {{ errorMessage }}
+          </div>
+        </div>
+        <!-- End Login Form -->
+        <!-- Signup Form -->
+        <div class="login form-peice switched">
+          <form
+            class="signup-form"
+            #fr="ngForm"
+            (ngSubmit)="onRegister()"
+            novalidate
+          >
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                [(ngModel)]="name"
+                required
+                class="name"
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="nombreUsuario">Nombre de usuario</label>
+              <input
+                type="text"
+                name="nombreUsuario"
+                id="nombreUsuario"
+                [(ngModel)]="usernameRegister"
+                required
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                [(ngModel)]="email"
+                required
+                class="email"
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone"
+                >Numero de telefono - <small>Optional</small></label
+              >
+              <input type="text" name="phone" id="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="passwordRegister">Contraseña</label>
+              <input
+                type="password"
+                name="passwordRegister"
+                id="passwordRegister"
+                [(ngModel)]="passwordRegister"
+                required
+                class="pass"
+              />
+              <span class="error"></span>
+            </div>
+
+            <div class="CTA">
+              <input
+                type="submit"
+                value="Registrar"
+                id="submit"
+                class="btn btn-outline-success btn-block"
+                [disabled]="!fr.valid"
+              />
+              <a class="switch" style="cursor: pointer">Ya tengo una cuenta</a>
+            </div>
+          </form>
+        </div>
+        <!-- End Signup Form -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Form made by:
+      <a
+        href="https://www.facebook.com/profile.php?id=100002338313079"
+        target="_blank"
+        >Daniel Gonzalez</a
+      >
+    </p>
+  </footer>
+</div>
