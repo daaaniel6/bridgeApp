@@ -1,18 +1,7 @@
 export class JwtDTO {
   token: string;
-  type: string;
-  username: string;
-  authorities: string[];
 
-  constructor(
-    token: string,
-    type: string,
-    username: string,
-    authorities: string[]
-  ) {
+  constructor(token: string) {
     this.token = token;
-    this.type = type;
-    this.username = username;
-    this.authorities = authorities;
   }
 }

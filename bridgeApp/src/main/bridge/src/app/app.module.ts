@@ -82,10 +82,8 @@ import { PageHeaderComponent } from './components/page-header/page-header.compon
 import { InfoBoxesComponent } from './components/info-boxes/info-boxes.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { RegisterComponent } from './auth/register.component';
 
 //Login
-import { LogComponent } from './auth/log.component';
 import { LoginComponent } from './auth/login.component';
 
 //not external
@@ -125,9 +123,7 @@ import { LoadScriptsService } from './services/load-scripts.service';
     InfoBoxesComponent,
     FooterComponent,
     HomeComponent,
-    LogComponent,
     LoginComponent,
-    RegisterComponent,
   ],
   imports: [
     BrowserModule,

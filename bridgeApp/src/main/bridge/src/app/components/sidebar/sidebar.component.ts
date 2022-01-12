@@ -7,17 +7,11 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
-  isLogged = false;
   username = '';
 
   constructor(private tokenService: TokenService) {}
 
   ngOnInit(): void {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.username = this.tokenService.getUserName() || 'Usuario';
-    } else {
-      this.isLogged = false;
-    }
+    this.username = this.tokenService.getUserName();
   }
 }

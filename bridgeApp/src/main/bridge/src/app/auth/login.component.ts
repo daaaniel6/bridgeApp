@@ -12,12 +12,9 @@ import { TokenService } from '../services/token.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  isLogged = false;
-  isLoginFail = false;
   loginUser: LoginUser = new LoginUser('', '');
   username: string = '';
   password: string = '';
-  roles: string[] = [];
   errorMessage: string = '';
 
   //Register
@@ -38,31 +35,16 @@ export class LoginComponent implements OnInit {
     this.loadScriptsService.load(['login/login']);
   }
 
-  ngOnInit(): void {
-    if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.isLoginFail = false;
-      this.roles = this.tokenService.getAuthorities();
-    }
-    // if (this.tokenService.getToken()) {
-    //   this.isLogged = true;
-    // }
-  }
+  ngOnInit(): void {}
   onLogin(): void {
     this.loginUser = new LoginUser(this.username, this.password);
     this.authService.login(this.loginUser).subscribe(
       (data) => {
-        this.isLogged = true;
-        this.isLoginFail = false;
         this.tokenService.setToken(data.token);
-        this.tokenService.setUserName(data.username);
-        this.tokenService.setAuthorities(data.authorities);
-        this.roles = data.authorities;
+
         this.router.navigate(['/dashboard']);
       },
       (err) => {
-        this.isLogged = false;
-        this.isLoginFail = true;
         this.errorMessage = err.error.message;
         console.log(err);
       }
