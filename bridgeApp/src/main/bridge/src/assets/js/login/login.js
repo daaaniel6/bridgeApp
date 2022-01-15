@@ -20,6 +20,7 @@
 
   // form switch
   $("a.switch").click(function (e) {
+
     $(this).toggleClass("active");
     e.preventDefault();
 

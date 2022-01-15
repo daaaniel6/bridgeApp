@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { LoginUser } from '../models/login-user';
 import { NewUser } from '../models/new-user';
 import { AuthService } from '../services/auth.service';
 import { LoadScriptsService } from '../services/load-scripts.service';
+import { ToastService } from '../services/notifications/toast.service';
 import { TokenService } from '../services/token.service';
 
 @Component({
@@ -23,30 +26,44 @@ export class LoginComponent implements OnInit {
   usernameRegister: string = '';
   passwordRegister: string = '';
   email: string = '';
-  // errorMessage: string = '';
-  // isLogged = false;
+
+  public formRegister: FormGroup = this.formBuilder.group({});
 
   constructor(
     private loadScriptsService: LoadScriptsService,
     private tokenService: TokenService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastService: ToastService,
+    private formBuilder: FormBuilder
   ) {
     this.loadScriptsService.load(['login/login']);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.formRegister = this.formBuilder.group({
+      name: [''],
+      username: [''],
+      email: [''],
+      password: [''],
+    });
+  }
   onLogin(): void {
     this.loginUser = new LoginUser(this.username, this.password);
     this.authService.login(this.loginUser).subscribe(
       (data) => {
         this.tokenService.setToken(data.token);
 
+        this.toastService.showSuccess(
+          'Login correcto',
+          'Bienvenido' + this.username
+        );
+        window.location.reload();
         this.router.navigate(['/dashboard']);
       },
       (err) => {
         this.errorMessage = err.error.message;
-        console.log(err);
+        this.toastService.showError('Error', this.errorMessage);
       }
     );
   }
@@ -60,15 +77,17 @@ export class LoginComponent implements OnInit {
     );
     this.authService.newUser(this.newUser).subscribe(
       (data) => {
-        //console.log('cuenta creada correctamente');
         this.router.navigate(['/login']);
         this.cleanInputs();
-        console.log(data);
+        this.toastService.showSuccess(
+          'Informacion',
+          'Cuenta creada correctamente'
+        );
       },
       (err) => {
-        this.errorMessage = err.error.message;
+        this.errorMessage = err.error;
+        this.toastService.showError('Error', this.errorMessage);
         console.log(err);
-        console.log('error al crear la cuenta');
       }
     );
   }

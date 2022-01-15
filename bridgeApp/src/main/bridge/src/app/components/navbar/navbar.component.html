@@ -11,21 +11,8 @@
       <a routerLink="/" class="nav-link">Home</a>
     </li>
     <li *ngIf="isLogged" class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link">Contact</a>
-    </li>
-
-    <li *ngIf="!isLogged" class="nav-item d-none d-sm-inline-block">
-      <a routerLink="/login" class="nav-link">
-        <i class="fa fa-sign-in-alt"></i> Iniciar sesion</a
-      >
-    </li>
-    <li
-      *ngIf="isLogged"
-      (click)="onLogOut()"
-      class="nav-item d-none d-sm-inline-block"
-    >
-      <a style="cursor: pointer" class="nav-link">
-        <i class="fas fa-door-open"></i> Cerrar sesion</a
+      <a (click)="clickContact()" class="nav-link" style="cursor: pointer"
+        >Contact</a
       >
     </li>
   </ul>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 
 // sirve para el ng-tamplate
-import { SharedModule } from 'primeng/api';
+import { MessageService, SharedModule } from 'primeng/api';
 import { AvatarModule } from 'primeng/avatar';
 import { BadgeModule } from 'primeng/badge';
 import { MenuModule } from 'primeng/menu';
@@ -91,6 +91,9 @@ import { interceptorProvider } from './interceptors/prod-interceptor.service';
 
 //Services
 import { LoadScriptsService } from './services/load-scripts.service';
+import { SendEmailComponent } from './pages/changePassword/send-email/send-email.component';
+import { ChangePasswordComponent } from './pages/changePassword/change-password/change-password.component';
+import { ToastService } from './services/notifications/toast.service';
 
 @NgModule({
   declarations: [
@@ -124,6 +127,8 @@ import { LoadScriptsService } from './services/load-scripts.service';
     FooterComponent,
     HomeComponent,
     LoginComponent,
+    SendEmailComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -142,8 +147,6 @@ import { LoadScriptsService } from './services/load-scripts.service';
     MessageModule,
     CarouselModule,
     ToastModule,
-    //ChartsModule,
-    //ChartModule,
     NgxChartsModule,
     DialogModule,
     TableModule,
@@ -153,9 +156,15 @@ import { LoadScriptsService } from './services/load-scripts.service';
     FileUploadModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   exports: [NgxChartsModule],
-  providers: [interceptorProvider, LoadScriptsService],
+  providers: [
+    interceptorProvider,
+    LoadScriptsService,
+    ToastService,
+    MessageService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

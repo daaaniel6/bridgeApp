@@ -1,0 +1,73 @@
+<div class="container">
+  <section id="formHolder">
+    <div class="row">
+      <!-- Brand Box -->
+      <div class="col-sm-6 brand">
+        <a href="#" class="logo">DG <span>.</span></a>
+
+        <div class="heading">
+          <h2>Puentes</h2>
+          <p>Bienvenido a la APP</p>
+        </div>
+
+        <div class="success-msg">
+          <p>Great! You are one of our members now</p>
+          <a href="#" class="profile">Your Profile</a>
+        </div>
+      </div>
+
+      <!-- Form Box -->
+      <div class="col-sm-6 form">
+        <!-- Login Form -->
+        <div class="signup form-peice">
+          <form
+            class="login-form"
+            #f="ngForm"
+            (ngSubmit)="onSendEmail()"
+            novalidate
+          >
+            <h3>Te enviaremos un correo para recuperar tu contraseña</h3>
+            <div class="form-group">
+              <label for="username">Nombre de usuario o email</label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                [(ngModel)]="username"
+                required
+              />
+            </div>
+
+            <div class="CTA">
+              <input
+                type="submit"
+                value="Enviar Correo"
+                [disabled]="!f.valid"
+                class="btn btn-outline-success btn-block"
+              />
+              <a style="cursor: pointer" class="switch" routerLink="/login"
+                >Iniciar sesion</a
+              >
+            </div>
+          </form>
+        </div>
+        <!-- End Login Form -->
+        <!-- Signup Form -->
+        <!-- End Signup Form -->
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>
+      Form made by:
+      <a
+        href="https://www.facebook.com/profile.php?id=100002338313079"
+        target="_blank"
+        >Daniel Gonzalez</a
+      >
+    </p>
+  </footer>
+</div>
+
+<p-toast></p-toast>
