@@ -72,7 +72,7 @@
         <div class="login form-peice switched">
           <form
             class="signup-form"
-            #fr="ngForm"
+            [formGroup]="formRegister"
             (ngSubmit)="onRegister()"
             novalidate
           >
@@ -82,8 +82,7 @@
                 type="text"
                 name="nombre"
                 id="nombre"
-                [(ngModel)]="name"
-                required
+                formControlName="name"
                 class="name"
               />
               <span class="error"></span>
@@ -95,8 +94,7 @@
                 type="text"
                 name="nombreUsuario"
                 id="nombreUsuario"
-                [(ngModel)]="usernameRegister"
-                required
+                formControlName="username"
               />
               <span class="error"></span>
             </div>
@@ -107,8 +105,7 @@
                 type="email"
                 name="email"
                 id="email"
-                [(ngModel)]="email"
-                required
+                formControlName="email"
                 class="email"
               />
               <span class="error"></span>
@@ -127,8 +124,7 @@
                 type="password"
                 name="passwordRegister"
                 id="passwordRegister"
-                [(ngModel)]="passwordRegister"
-                required
+                formControlName="password"
                 class="pass"
               />
               <span class="error"></span>
@@ -140,7 +136,7 @@
                 value="Registrar"
                 id="submit"
                 class="btn btn-outline-success btn-block"
-                [disabled]="!fr.valid"
+                [disabled]="!formRegister.valid"
               />
               <a class="switch" style="cursor: pointer">Ya tengo una cuenta</a>
             </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { LoginUser } from '../models/login-user';
@@ -22,11 +22,6 @@ export class LoginComponent implements OnInit {
 
   //Register
   newUser: NewUser = new NewUser('', '', '', '');
-  name: string = '';
-  usernameRegister: string = '';
-  passwordRegister: string = '';
-  email: string = '';
-
   public formRegister: FormGroup = this.formBuilder.group({});
 
   constructor(
@@ -42,10 +37,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.formRegister = this.formBuilder.group({
-      name: [''],
-      username: [''],
-      email: [''],
-      password: [''],
+      name: ['', [Validators.required]],
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
     });
   }
   onLogin(): void {
@@ -70,18 +65,19 @@ export class LoginComponent implements OnInit {
 
   onRegister(): void {
     this.newUser = new NewUser(
-      this.name,
-      this.usernameRegister,
-      this.email,
-      this.passwordRegister
+      this.formRegister.value.name,
+      this.formRegister.value.username,
+      this.formRegister.value.email,
+      this.formRegister.value.password
     );
     this.authService.newUser(this.newUser).subscribe(
       (data) => {
+        //FIXME:navegar a login
         this.router.navigate(['/login']);
         this.cleanInputs();
         this.toastService.showSuccess(
-          'Informacion',
-          'Cuenta creada correctamente'
+          'Cuenta creada',
+          'Ya puedes iniciar sesión'
         );
       },
       (err) => {
@@ -93,11 +89,10 @@ export class LoginComponent implements OnInit {
   }
 
   cleanInputs(): void {
-    this.name = '';
-    this.usernameRegister = '';
-    this.passwordRegister = '';
-    this.email = '';
     this.username = '';
     this.password = '';
+
+    //this.formRegister = this.formBuilder.group({});
+    this.formRegister.reset();
   }
 }
