@@ -1,0 +1,248 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<app-sidebar></app-sidebar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <app-page-header pageTitle="Puente nuevo"></app-page-header>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Datos del puente</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <form [formGroup]="form" novalidate (ngSubmit)="onSave()">
+                <!-- input states -->
+                <div class="form-group">
+                  <label class="col-form-label is-required" for="inputSuccess"
+                    ><i class="fas fa-check"></i> Nombre del puente</label
+                  >
+                  <input
+                    formControlName="name"
+                    type="text"
+                    class="form-control is-valid"
+                    id="inputSuccess"
+                    placeholder="Enter ..."
+                    required
+                  />
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Kilometraje</label>
+                      <input
+                        formControlName="mileage"
+                        type="number"
+                        min="0"
+                        step="1"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Codigo</label>
+                      <input
+                        formControlName="code"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Ruta</label>
+                      <input
+                        formControlName="route"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Ruta pavimentada</label>
+                      <select formControlName="pavedRoute" class="form-control">
+                        <option>Si</option>
+                        <option>No</option>
+                        <option>Parcial</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label class="is-required">Departamento</label>
+                      <select
+                        class="form-control"
+                        (change)="onDepartamentChange()"
+                        formControlName="departamentDepartamentId"
+                      >
+                        <option
+                          *ngFor="let departament of departaments"
+                          [ngValue]="departament"
+                        >
+                          {{ departament.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Municipio</label>
+                      <select
+                        formControlName="municipalityMunicipalityId"
+                        class="form-control"
+                      >
+                        <option
+                          *ngFor="let municipality of municipalities"
+                          [ngValue]="municipality"
+                        >
+                          {{ municipality.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- select -->
+                    <div class="form-group">
+                      <label>Alineamiento Horizontal</label>
+                      <select
+                        class="form-control"
+                        formControlName="horizontalAlignment"
+                      >
+                        <option selected>Tangente</option>
+                        <option>Curva</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Esviaje / Sesgo</label>
+                      <select formControlName="skew" class="form-control">
+                        <option selected>Si</option>
+                        <option>No</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Poblacion ANTES del puente (Nombre)</label>
+                      <input
+                        formControlName="populationBefore"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Poblacion DESPUES del puente (Nombre)</label>
+                      <input
+                        formControlName="populationAfter"
+                        type="text"
+                        class="form-control"
+                        placeholder="Enter ..."
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-3">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Coordenadas UTM Norte</label>
+                      <input
+                        formControlName="northUtmCoordinates"
+                        type="text"
+                        class="form-control"
+                        placeholder="Norte ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <!-- text input -->
+                    <div class="form-group">
+                      <label>Coordenadas UTM Sur</label>
+                      <input
+                        formControlName="eastUtmCoordinates"
+                        type="text"
+                        class="form-control"
+                        placeholder="Sur ..."
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label class="is-required">Estado del puente</label>
+                      <select formControlName="status" class="form-control">
+                        <option selected>Bueno</option>
+                        <option>Regular</option>
+                        <option>Malo</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- End rows -->
+
+                <button
+                  type="submit"
+                  class="btn btn-block btn-outline-success btn-lg"
+                  [disabled]="!form.valid"
+                >
+                  Guardar
+                </button>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+
+        <!-- right column ---------------------------------- -->
+        <div class="col-md-6"></div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<app-footer></app-footer>
+<!-- /.Footer -->

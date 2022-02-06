@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BridgesTableComponent } from './bridges-table.component';
+import { NewBridgeComponent } from './new-bridge.component';
 
-describe('BridgesTableComponent', () => {
-  let component: BridgesTableComponent;
-  let fixture: ComponentFixture<BridgesTableComponent>;
+describe('NewBridgeComponent', () => {
+  let component: NewBridgeComponent;
+  let fixture: ComponentFixture<NewBridgeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BridgesTableComponent ]
+      declarations: [ NewBridgeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BridgesTableComponent);
+    fixture = TestBed.createComponent(NewBridgeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

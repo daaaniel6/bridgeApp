@@ -1,5 +1,6 @@
-<table class="container">
-  <!-- <thead>
+<form [formGroup]="form" novalidate (ngSubmit)="onSave()">
+  <table class="container">
+    <!-- <thead>
     <tr>
       <th><h1>Sites</h1></th>
       <th><h1>Views</h1></th>
@@ -7,129 +8,194 @@
       <th><h1>Average</h1></th>
     </tr>
   </thead> -->
-  <tbody>
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <input class="input" id="float-input" type="text" pInputText />
-          <label class="label" for="float-input">Nombre del puente</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label" for="float-input">Codigo</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label" for="float-input">Ruta</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label" for="float-input">Kilometraje</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
-        <div>
-          <label class="label" for="float-input">Departamento</label>
-        </div>
-        <p-dropdown
-          [options]="cities"
-          optionLabel="name"
-          optionValue="code"
-          placeholder="Departamento"
-          class="dropdown"
-        ></p-dropdown>
-      </td>
-      <td colspan="2">
-        <div>
-          <label class="label" for="float-input">Municipio</label>
-        </div>
-        <p-dropdown
-          [options]="cities"
-          optionLabel="name"
-          optionValue="code"
-          placeholder="Municipio"
-        ></p-dropdown>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <td colspan="2">
+          <div>
+            <label class="label" for="float-input">Estado del puente</label>
+          </div>
+          <p-dropdown
+            formControlName="status"
+            [options]="status"
+            optionLabel="name"
+            optionValue="name"
+            placeholder="Estado del puente"
+          >
+          </p-dropdown>
+        </td>
+        <td colspan="2">Podra modificar mas adelante</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="name"
+              class="input"
+              id="float-input"
+              type="text"
+              pInputText
+            />
+            <label class="label" for="float-input">Nombre del puente</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="code"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label" for="float-input">Codigo</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="route"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label" for="float-input">Ruta</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <p-inputNumber
+              formControlName="mileage"
+              [inputStyle]="{ width: '100%' }"
+              inputId="integeronly"
+            >
+            </p-inputNumber>
+            <label class="label" for="float-input">Kilometraje</label>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div>
+            <label class="label" for="float-input">Departamento</label>
+          </div>
+          <p-dropdown
+            formControlName="departamentDepartamentId"
+            [options]="departaments"
+            optionLabel="name"
+            placeholder="Departamento"
+            class="dropdown"
+            (onChange)="onDepartamentChange()"
+          ></p-dropdown>
+        </td>
+        <td colspan="2">
+          <div>
+            <label class="label" for="float-input">Municipio</label>
+          </div>
+          <p-dropdown
+            formControlName="municipalityMunicipalityId"
+            [options]="municipalities"
+            optionLabel="name"
+            placeholder="Municipio"
+          ></p-dropdown>
+        </td>
+      </tr>
 
-    <tr>
-      <td colspan="2">
-        <div>
-          <label class="label" for="float-input">Ruta pavimentada</label>
-        </div>
-        <p-dropdown
-          [options]="rutaPavimentada"
-          optionLabel="name"
-          optionValue="code"
-          placeholder="Ruta pavimentada"
-        >
-        </p-dropdown>
-      </td>
-      <td>
-        <div>
-          <label class="label" for="float-input">Alineamiento Horizontal</label>
-        </div>
-        <p-dropdown
-          [options]="alineamientoHorizontal"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Alineacion horizontal"
-        >
-        </p-dropdown>
-      </td>
-      <td>
-        <div>
-          <label class="label" for="float-input">Esviaje / Sesgo</label>
-        </div>
-        <p-dropdown
-          [options]="esviaje"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Esviaje / Sesgo"
-        >
-        </p-dropdown>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">Coordenadas UTM</td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Norte</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Este</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">Poblacion ANTES del puente (Nombre)</td>
-      <td colspan="2">
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Nombre</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">Poblacion DESPUES del puente (Nombre)</td>
-      <td colspan="2">
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Nombre</label>
-        </span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      <tr>
+        <td colspan="2">
+          <div>
+            <label class="label" for="float-input">Ruta pavimentada</label>
+          </div>
+          <p-dropdown
+            formControlName="pavedRoute"
+            [options]="rutaPavimentada"
+            optionLabel="name"
+            optionValue="name"
+            placeholder="Ruta pavimentada"
+          >
+          </p-dropdown>
+        </td>
+        <td>
+          <div>
+            <label class="label" for="float-input"
+              >Alineamiento Horizontal</label
+            >
+          </div>
+          <p-dropdown
+            formControlName="horizontalAlignment"
+            [options]="alineamientoHorizontal"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Alineacion horizontal"
+          >
+          </p-dropdown>
+        </td>
+        <td>
+          <div>
+            <label class="label" for="float-input">Esviaje / Sesgo</label>
+          </div>
+          <p-dropdown
+            formControlName="skew"
+            [options]="esviaje"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Esviaje / Sesgo"
+          >
+          </p-dropdown>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Coordenadas UTM</td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="northUtmCoordinates"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Norte</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="eastUtmCoordinates"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Este</label>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Poblacion ANTES del puente (Nombre)</td>
+        <td colspan="2">
+          <span class="p-float-label">
+            <input
+              formControlName="populationBefore"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Nombre</label>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Poblacion DESPUES del puente (Nombre)</td>
+        <td colspan="2">
+          <span class="p-float-label">
+            <input
+              formControlName="populationAfter"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Nombre</label>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit" [disabled]="!form.valid">SAve</button>
+</form>

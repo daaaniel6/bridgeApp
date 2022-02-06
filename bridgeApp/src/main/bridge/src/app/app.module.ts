@@ -33,7 +33,6 @@ import { CarouselComponent } from './components/carousel/carousel.component';
 //carousel
 import { CarouselModule } from 'primeng/carousel';
 
-import { NewRegisterComponent } from './pages/new-register/new-register.component';
 import { EditRegisterComponent } from './pages/edit-register/edit-register.component';
 import { DeleteRegisterComponent } from './pages/delete-register/delete-register.component';
 
@@ -50,7 +49,6 @@ import { DialogModule } from 'primeng/dialog';
 
 //tablas
 import { TableModule } from 'primeng/table';
-import { BridgesTableComponent } from './components/bridges-table/bridges-table.component';
 import { BridgeSelectedComponent } from './pages/bridge-selected/bridge-selected.component';
 
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
@@ -94,6 +92,10 @@ import { LoadScriptsService } from './services/load-scripts.service';
 import { SendEmailComponent } from './pages/changePassword/send-email/send-email.component';
 import { ChangePasswordComponent } from './pages/changePassword/change-password/change-password.component';
 import { ToastService } from './services/notifications/toast.service';
+import { NewBridgeComponent } from './pages/bridge/new-bridge/new-bridge.component';
+import { UpdateBridgeComponent } from './pages/bridge/update-bridge/update-bridge.component';
+import { NewRegisterComponent } from './pages/bridge/new-register/new-register.component';
+import { BridgeComunicationService } from './services/comunication/bridge-comunication.service';
 
 @NgModule({
   declarations: [
@@ -103,12 +105,10 @@ import { ToastService } from './services/notifications/toast.service';
     DashboardComponent,
     Page404Component,
     CarouselComponent,
-    NewRegisterComponent,
     EditRegisterComponent,
     DeleteRegisterComponent,
     BarChartComponent,
     PieChartComponent,
-    BridgesTableComponent,
     BridgeSelectedComponent,
     InformationTableComponent,
     GeneralTableComponent,
@@ -129,6 +129,9 @@ import { ToastService } from './services/notifications/toast.service';
     LoginComponent,
     SendEmailComponent,
     ChangePasswordComponent,
+    NewBridgeComponent,
+    UpdateBridgeComponent,
+    NewRegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -164,6 +167,7 @@ import { ToastService } from './services/notifications/toast.service';
     LoadScriptsService,
     ToastService,
     MessageService,
+    BridgeComunicationService,
   ],
   bootstrap: [AppComponent],
 })

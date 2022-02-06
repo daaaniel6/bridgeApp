@@ -89,7 +89,7 @@ h2 a {
 // para la primera columna
 .container td:first-child {
   // color de la primera columna si contar el header
-  color: white;
+  color: black;
 }
 
 // para el resto de columnas
@@ -140,9 +140,9 @@ h2 a {
   z-index: 1;
 }
 
-@media (max-width: 800px) {
-  .container td:nth-child(4),
-  .container th:nth-child(4) {
-    display: none;
-  }
-}
+// @media (max-width: 800px) {
+//   .container td:nth-child(4),
+//   .container th:nth-child(4) {
+//     display: none;
+//   }
+// }

@@ -1,0 +1,41 @@
+import { Departament } from '../departaments/departament';
+import { Municipality } from '../departaments/municipality';
+import { GeneralData } from './general-data';
+
+export interface Bridge {
+  bridgeId?: number;
+  name?: null | string;
+  code?: null | string;
+  route?: null | string;
+  mileage?: number | null;
+  pavedRoute?: null | string;
+  horizontalAlignment?: null | string;
+  skew?: null | string;
+  northUtmCoordinates?: null | string;
+  eastUtmCoordinates?: null | string;
+  populationBefore?: null | string;
+  populationAfter?: null | string;
+  status?: null | string;
+  trafficLight?: null | string;
+  evaluationStartDate?: Date | null;
+  evaluationEndDate?: Date | null;
+  long1?: null | string;
+  lat?: null | string;
+  type?: null;
+  extra?: null;
+  bridgeInspectorList?: any[];
+  stretchList?: any[];
+  imageList?: any[];
+  blueprintList?: any[];
+  stapesList?: any[];
+  commentList?: any[];
+  sensorList?: any[];
+  channelChannelId?: null;
+  departamentDepartamentId?: Departament | null;
+  generalDataGeneralDataId?: GeneralData | null;
+  municipalityMunicipalityId?: Municipality | null;
+  nonStructuralElementsNonStructuralElementsId?: null;
+  otherOtherId?: null;
+  pilePileId?: null;
+  superstructureSuperstructureId?: null;
+}

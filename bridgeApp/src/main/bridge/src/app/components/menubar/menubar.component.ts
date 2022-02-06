@@ -90,7 +90,7 @@ export class MenubarComponent implements OnInit {
                 label: 'Nuevo puente',
                 icon: 'pi pi-fw pi-video',
                 command: (click) => {
-                  this.redirectToPage('/register');
+                  this.redirectToPage('/newRegister');
                 },
               },
             ],
