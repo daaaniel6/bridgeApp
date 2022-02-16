@@ -1,0 +1,30 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">Tramo 1</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="length"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Longiud tramo (m)</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="typeSection"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Tipo de seccion</label>
+      </span>
+    </td>
+  </tr>
+</form>

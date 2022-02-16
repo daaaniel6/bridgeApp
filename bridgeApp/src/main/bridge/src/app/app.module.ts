@@ -11,7 +11,6 @@ import { PanelMenuComponent } from './components/panel-menu/panel-menu.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PanelMenuModule } from 'primeng/panelmenu';
-import { MenubarComponent } from './components/menubar/menubar.component';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 
@@ -96,12 +95,12 @@ import { NewBridgeComponent } from './pages/bridge/new-bridge/new-bridge.compone
 import { UpdateBridgeComponent } from './pages/bridge/update-bridge/update-bridge.component';
 import { NewRegisterComponent } from './pages/bridge/new-register/new-register.component';
 import { BridgeComunicationService } from './services/comunication/bridge-comunication.service';
+import { StretchRowComponent } from './components/stretch-row/stretch-row.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PanelMenuComponent,
-    MenubarComponent,
     DashboardComponent,
     Page404Component,
     CarouselComponent,
@@ -132,6 +131,7 @@ import { BridgeComunicationService } from './services/comunication/bridge-comuni
     NewBridgeComponent,
     UpdateBridgeComponent,
     NewRegisterComponent,
+    StretchRowComponent,
   ],
   imports: [
     BrowserModule,

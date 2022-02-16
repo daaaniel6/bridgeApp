@@ -41,14 +41,14 @@ h2 a {
   color: #fff842;
 }
 
-.container th h1 {
+th h1 {
   font-weight: bold;
   font-size: 1em;
   text-align: left;
   color: white;
 }
 
-.container td {
+td {
   font-weight: normal;
   font-size: 1em;
   -webkit-box-shadow: 0 2px 2px -2px #0e1119;
@@ -65,35 +65,35 @@ h2 a {
   display: table;
 }
 
-.container td,
-.container th {
+td,
+th {
   padding-bottom: 2%;
   padding-top: 2%;
   padding-left: 2%;
 }
 
 /* Background-color of the odd rows */
-.container tr:nth-child(odd) {
+tr:nth-child(odd) {
   background-color: #6282b5;
 }
 
 /* Background-color of the even rows */
-.container tr:nth-child(even) {
+tr:nth-child(even) {
   background-color: #9dbbd9;
 }
 
-.container th {
+th {
   background-color: #a07ca5;
 }
 
 // para la primera columna
-.container td:first-child {
+td:first-child {
   // color de la primera columna si contar el header
   color: white;
 }
 
 // para el resto de columnas
-.container td {
+td {
   // color de la primera columna si contar el header
   color: white;
   //width: 215px;
@@ -112,15 +112,13 @@ h2 a {
 }
 .label {
   color: black;
-  //TODO: fuente idal;
-  //font-size: 12px;
 }
 .dropdown:hover {
   // position: relative;
   // z-index: 1;
 }
 
-.container tr:hover {
+tr:hover {
   // color de la fila seleccionada
   background-color: #828282;
   -webkit-box-shadow: 0 6px 6px -6px #0e1119;
@@ -128,7 +126,7 @@ h2 a {
   box-shadow: 0 6px 6px -6px #0e1119;
 }
 
-.container td:hover {
+td:hover {
   background-color: #fff842;
   color: #403e10;
   font-weight: bold;
@@ -146,14 +144,6 @@ h2 a {
 
   position: relative;
   z-index: 1;
-}
-
-.p-component {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
-  font-weight: normal;
-  font-size: 10px;
 }
 
 @media (max-width: 800px) {

@@ -5,6 +5,7 @@ import { environment } from 'src/environments/environment';
 import { JwtDTO } from '../models/jwt-dto';
 import { LoginUser } from '../models/login-user';
 import { NewUser } from '../models/new-user';
+import { User } from '../models/user/user';
 
 @Injectable({
   providedIn: 'root',
@@ -32,5 +33,9 @@ export class AuthService {
 
   public refrsh(dto: JwtDTO): Observable<JwtDTO> {
     return this.httpClient.post<JwtDTO>(this.authURL + 'refresh', dto);
+  }
+
+  public getUserByUsername(username: String): Observable<User> {
+    return this.httpClient.get<User>(this.authURL + 'users/' + username);
   }
 }

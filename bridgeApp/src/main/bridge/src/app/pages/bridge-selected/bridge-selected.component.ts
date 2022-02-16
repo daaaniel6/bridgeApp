@@ -30,6 +30,7 @@ export class BridgeSelectedComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllBridges();
+    this.selectedBridge = {};
   }
 
   clickContinue() {
@@ -39,6 +40,12 @@ export class BridgeSelectedComponent implements OnInit {
         'Tiene que seleccionar uno de los puentes'
       );
     } else {
+      // find selectedBridge in bridges
+      this.bridges.find((bridge) => {
+        if (bridge.bridgeId === this.selectedBridge.bridgeId) {
+          this.selectedBridge = bridge;
+        }
+      });
       this.bridgeComunicationService.setBridge(this.selectedBridge);
       this.redirectToPage('/newRegister');
     }

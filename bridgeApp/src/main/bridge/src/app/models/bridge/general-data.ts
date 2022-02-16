@@ -11,7 +11,10 @@ export interface GeneralData {
   bridgeOver?: string;
   numberRoads?: number;
   superstructureMaterial?: string;
+  designLoad?: string;
+  yearOfConstruction?: number;
+  substructureMaterial?: string;
   traffic?: number;
   percentageTrucksBuses?: number;
-  lastEvaluationDate?: Date;
+  lastEvaluationDate?: null;
 }

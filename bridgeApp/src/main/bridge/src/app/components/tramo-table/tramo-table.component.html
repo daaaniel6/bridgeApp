@@ -1,92 +1,120 @@
 <table class="container">
   <tbody>
-    <tr>
-      <td colspan="2">Tramo 1</td>
-    </tr>
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <p-inputNumber
-            [inputStyle]="{ width: '100%' }"
-            mode="decimal"
-            locale="en-US"
-            [minFractionDigits]="2"
-          ></p-inputNumber>
-          <label class="label" for="float-input">Longiud tramo (m)</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Tipo de seccion</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">Tramo 2</td>
-    </tr>
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <p-inputNumber
-            [inputStyle]="{ width: '100%' }"
-            mode="decimal"
-            locale="en-US"
-            [minFractionDigits]="2"
-          ></p-inputNumber>
-          <label class="label" for="float-input">Longiud tramo (m)</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Tipo de seccion</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">Tramo 3</td>
-    </tr>
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <p-inputNumber
-            [inputStyle]="{ width: '100%' }"
-            mode="decimal"
-            locale="en-US"
-            [minFractionDigits]="2"
-          ></p-inputNumber>
-          <label class="label" for="float-input">Longiud tramo (m)</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Tipo de seccion</label>
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">Otros</td>
-    </tr>
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <p-inputNumber
-            [inputStyle]="{ width: '100%' }"
-            mode="decimal"
-            locale="en-US"
-            [minFractionDigits]="2"
-          ></p-inputNumber>
-          <label class="label" for="float-input">Longiud tramo (m)</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Tipo de seccion</label>
-        </span>
-      </td>
-    </tr>
+    <div *ngFor="let stretch of stretchListAux">
+      <app-stretch-row [stretch]="stretch"></app-stretch-row>
+    </div>
+
+    <!-- <tr>
+        <td colspan="2">Tramo 1</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <p-inputNumber
+              formControlName="length1"
+              [inputStyle]="{ width: '100%' }"
+              mode="decimal"
+              locale="en-US"
+              [minFractionDigits]="2"
+            ></p-inputNumber>
+            <label class="label" for="float-input">Longiud tramo (m)</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="typeSection1"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Tipo de seccion</label>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Tramo 2</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <p-inputNumber
+              formControlName="length2"
+              [inputStyle]="{ width: '100%' }"
+              mode="decimal"
+              locale="en-US"
+              [minFractionDigits]="2"
+            ></p-inputNumber>
+            <label class="label" for="float-input">Longiud tramo (m)</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="typeSection2"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Tipo de seccion</label>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Tramo 3</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <p-inputNumber
+              formControlName="length3"
+              [inputStyle]="{ width: '100%' }"
+              mode="decimal"
+              locale="en-US"
+              [minFractionDigits]="2"
+            ></p-inputNumber>
+            <label class="label" for="float-input">Longiud tramo (m)</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="typeSection3"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Tipo de seccion</label>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">Otros</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <p-inputNumber
+              formControlName="length4"
+              [inputStyle]="{ width: '100%' }"
+              mode="decimal"
+              locale="en-US"
+              [minFractionDigits]="2"
+            ></p-inputNumber>
+            <label class="label" for="float-input">Longiud tramo (m)</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="typeSection4"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Tipo de seccion</label>
+          </span>
+        </td>
+      </tr> -->
   </tbody>
 </table>

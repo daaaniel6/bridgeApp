@@ -78,7 +78,10 @@
             <label class="label" for="float-input">Departamento</label>
           </div>
           <p-dropdown
-            formControlName="departamentDepartamentId"
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="
+              form.value.municipalityMunicipalityId.departamentDepartamentId
+            "
             [options]="departaments"
             optionLabel="name"
             placeholder="Departamento"
@@ -197,5 +200,4 @@
       </tr>
     </tbody>
   </table>
-  <button type="submit" [disabled]="!form.valid">SAve</button>
 </form>

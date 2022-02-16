@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   authURL: 'http://localhost:8080/auth/',
   changePasswordURL: 'http://localhost:8080/email-password/',
+  bridgeURL: 'http://localhost:8080/api/bridges',
+  departamentURL: 'http://localhost:8080/api/departaments',
 };
 
 /*

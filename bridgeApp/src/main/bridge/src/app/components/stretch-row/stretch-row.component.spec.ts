@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MenubarComponent } from './menubar.component';
+import { StretchRowComponent } from './stretch-row.component';
 
-describe('MenubarComponent', () => {
-  let component: MenubarComponent;
-  let fixture: ComponentFixture<MenubarComponent>;
+describe('StretchRowComponent', () => {
+  let component: StretchRowComponent;
+  let fixture: ComponentFixture<StretchRowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenubarComponent ]
+      declarations: [ StretchRowComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenubarComponent);
+    fixture = TestBed.createComponent(StretchRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

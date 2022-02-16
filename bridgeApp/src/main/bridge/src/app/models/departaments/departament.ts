@@ -5,5 +5,5 @@ export interface Departament {
   name?: string;
   long1?: null;
   lat?: null;
-  municipalityList?: Municipality[];
+  // municipalityList?: Municipality[];
 }

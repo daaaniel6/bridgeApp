@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { takeUntil } from 'rxjs/operators';
 import { Departament } from 'src/app/models/departaments/departament';
 import { Municipality } from 'src/app/models/departaments/municipality';
 import { BridgeService } from 'src/app/services/bridges/bridge.service';
@@ -45,7 +46,11 @@ export class InformationTableComponent implements OnInit {
     private formBuilder: FormBuilder,
     private bridgeComunicationService: BridgeComunicationService
   ) {}
-
+  /**
+   *
+   *
+   * @memberof InformationTableComponent
+   */
   ngOnInit(): void {
     this.getAllDepartaments();
     this.form = this.formBuilder.group({
@@ -54,7 +59,6 @@ export class InformationTableComponent implements OnInit {
       code: [],
       route: [],
       mileage: [],
-      departamentDepartamentId: [],
       municipalityMunicipalityId: [],
       pavedRoute: [],
       horizontalAlignment: [],
@@ -71,7 +75,6 @@ export class InformationTableComponent implements OnInit {
       lat: [],
       type: [],
       extra: [],
-      bridgeInspectorList: [],
       stretchList: [],
       imageList: [],
       blueprintList: [],
@@ -84,9 +87,21 @@ export class InformationTableComponent implements OnInit {
       otherOtherId: [],
       pilePileId: [],
       superstructureSuperstructureId: [],
+      user: [],
     });
+
     this.form.setValue(this.bridgeComunicationService.getBridge());
     this.onDepartamentChange();
+
+    /**
+     * Save changes in bridge object
+     */
+    this.form.valueChanges.subscribe((values) => {
+      this.bridgeService.update(values).subscribe((data) => {
+        this.bridgeComunicationService.setBridge(values);
+        console.log('Guardado con exito', data);
+      });
+    });
   }
 
   /**
@@ -101,11 +116,22 @@ export class InformationTableComponent implements OnInit {
   /**
    * Get all municipalities by departament
    */
+  getAllMunicipalitiesByDepartamet(id: String): void {
+    this.departamentService.getAllMunicipalities(id).subscribe((data) => {
+      this.municipalities = data;
+    });
+  }
+
+  /**
+   *
+   */
   onDepartamentChange(): void {
-    if (this.form.value.departamentDepartamentId !== null) {
-      if (this.form.value.departamentDepartamentId !== undefined) {
-        this.municipalities =
-          this.form.value.departamentDepartamentId.municipalityList;
+    if (this.form.value.municipalityMunicipalityId !== null) {
+      if (this.form.value.municipalityMunicipalityId !== undefined) {
+        this.getAllMunicipalitiesByDepartamet(
+          this.form.value.municipalityMunicipalityId.departamentDepartamentId
+            .departamentId
+        );
       }
     }
   }

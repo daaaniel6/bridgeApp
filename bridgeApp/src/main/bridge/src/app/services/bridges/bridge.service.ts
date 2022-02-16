@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bridge } from 'src/app/models/bridge/bridge';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BridgeService {
-  private bridgeURL = 'http://localhost:8080/api/bridges';
+  private bridgeURL = environment.bridgeURL;
 
   constructor(private httpClient: HttpClient) {}
 
