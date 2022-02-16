@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Scour } from 'src/app/models/bridge/scour';
 import { Stapes } from 'src/app/models/bridge/stapes';
 import { Stretch } from 'src/app/models/bridge/stretch';
+import { Support } from 'src/app/models/bridge/support';
 import { Departament } from 'src/app/models/departaments/departament';
 import { Municipality } from 'src/app/models/departaments/municipality';
 import { User } from 'src/app/models/user/user';
@@ -23,6 +25,28 @@ export class NewBridgeComponent implements OnInit {
   user: User = {};
   stretchList: Stretch[] = [{}, {}, {}, {}];
 
+  scourScourId: Scour = {
+    name: 'Socavacion',
+    thereIsNot: '',
+    yesButThereIsNot: '',
+    yesThereIsExposure: '',
+    settlementOf: '',
+    extra: null,
+    pileList: [],
+  };
+  supportSupportId: Support = {
+    name: 'Apoyos',
+    material: '',
+    crushedNeoprene: '',
+    outOfPlace: '',
+    rusty: '',
+    boltMissing: '',
+    brokenBolt: '',
+    others: '',
+    extra: null,
+    pileList: [],
+  };
+  outputStape: Stapes = {};
   entryStape: Stapes = {
     nameStapes: 'Entrada',
     rowWidthList: [
@@ -111,28 +135,10 @@ export class NewBridgeComponent implements OnInit {
         extra: null,
       },
     ],
-    scourScourId: {
-      name: 'Socavacion',
-      thereIsNot: '',
-      yesButThereIsNot: '',
-      yesThereIsExposure: '',
-      settlementOf: '',
-      extra: null,
-      pileList: [],
-    },
-    supportSupportId: {
-      name: 'Apoyos',
-      material: '',
-      crushedNeoprene: '',
-      outOfPlace: '',
-      rusty: '',
-      boltMissing: '',
-      brokenBolt: '',
-      others: '',
-      extra: null,
-      pileList: [],
-    },
+    scourScourId: this.scourScourId,
+    supportSupportId: this.supportSupportId,
   };
+  stapesList: Stapes[] = [this.entryStape, this.outputStape];
 
   public form: FormGroup = this.formBuilder.group({});
 
@@ -167,6 +173,7 @@ export class NewBridgeComponent implements OnInit {
       evaluationStartDate: [],
       user: [],
       stretchList: this.stretchList,
+      stapesList: this.stapesList,
     });
   }
 
