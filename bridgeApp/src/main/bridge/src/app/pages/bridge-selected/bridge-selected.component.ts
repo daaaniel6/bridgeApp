@@ -44,6 +44,7 @@ export class BridgeSelectedComponent implements OnInit {
       this.bridges.find((bridge) => {
         if (bridge.bridgeId === this.selectedBridge.bridgeId) {
           this.selectedBridge = bridge;
+          console.log('selectedBridge', this.selectedBridge);
         }
       });
       this.bridgeComunicationService.setBridge(this.selectedBridge);

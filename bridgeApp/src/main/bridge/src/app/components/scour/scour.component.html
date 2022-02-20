@@ -1,0 +1,60 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">Socavación</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <span class="p-float-label">
+        <input
+          formControlName="thereIsNot"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">No hay</label>
+      </span>
+    </td>
+
+    <td colspan="2">
+      <div>
+        <label class="label" for="float-input">Si, pero no hay</label>
+      </div>
+      <p-dropdown
+        formControlName="yesButThereIsNot"
+        [options]="options"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Si"
+        [virtualScroll]="true"
+      ></p-dropdown>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <div>
+        <label class="label" for="float-input">Si, hay exposición</label>
+      </div>
+      <p-dropdown
+        formControlName="yesThereIsExposure"
+        [options]="options"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Si"
+        [virtualScroll]="true"
+      ></p-dropdown>
+    </td>
+    <td colspan="2">
+      <div>
+        <label class="label" for="float-input">Asentamiento de</label>
+      </div>
+      <p-dropdown
+        formControlName="settlementOf"
+        [options]="options"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Asentamiento"
+        [virtualScroll]="true"
+      ></p-dropdown>
+    </td>
+  </tr>
+</form>

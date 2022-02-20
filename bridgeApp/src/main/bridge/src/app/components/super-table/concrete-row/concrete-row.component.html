@@ -1,0 +1,60 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">{{ concreteRow.nameConcrete }}</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="diagonalCracks"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en Diagonal</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="verticalCracks"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas Verticales</label>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="stoneLossPerBlow"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Perdida de petreos por golpe</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="steelExhibition"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Exposicion de acero</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input formControlName="others" class="input" type="text" pInputText />
+        <label class="label">Otros</label>
+      </span>
+    </td>
+  </tr>
+</form>

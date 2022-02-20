@@ -1,0 +1,65 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">{{ steelRow.nameSteel }}</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input formControlName="oxide" class="input" type="text" pInputText />
+        <label class="label">Oxido</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="missingBolts"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Faltan Pernos</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="hitElement"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Elemento Golpeado</label>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cutElement"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Elemento Cortado</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="painting"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Pintura</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input formControlName="others" class="input" type="text" pInputText />
+        <label class="label">Otros</label>
+      </span>
+    </td>
+  </tr>
+</form>

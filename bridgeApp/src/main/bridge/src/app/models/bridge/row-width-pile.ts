@@ -1,4 +1,4 @@
-export interface RowWidth {
+export interface RowWidthPile {
   rowWidthId?: number;
   nameRow?: string;
   material?: null | string;
@@ -10,5 +10,5 @@ export interface RowWidth {
   steelExhibition?: null | string;
   others?: null | string;
   extra?: null;
-  stapesStapesId?: number;
+  pilePileId?: number;
 }

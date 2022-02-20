@@ -1,9 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BearingSlab } from 'src/app/models/bridge/bearing-slab';
+import { ConcreteRow } from 'src/app/models/bridge/concrete-row';
+import { GeneralData } from 'src/app/models/bridge/general-data';
+import { Barrier } from 'src/app/models/bridge/nonStructuralElements/barrier';
+import { Council } from 'src/app/models/bridge/nonStructuralElements/council';
+import { HandrailRailing } from 'src/app/models/bridge/nonStructuralElements/handrail-railing';
+import { NonStructuralElements } from 'src/app/models/bridge/nonStructuralElements/non-structural-elements';
+import { ProtectionWorks } from 'src/app/models/bridge/nonStructuralElements/protection-works';
+import { RailingPosts } from 'src/app/models/bridge/nonStructuralElements/railing-posts';
+import { SlabAccess } from 'src/app/models/bridge/nonStructuralElements/slab-access';
+import { Pile } from 'src/app/models/bridge/pile';
 import { Scour } from 'src/app/models/bridge/scour';
+import { SewerSystem } from 'src/app/models/bridge/sewer-system';
 import { Stapes } from 'src/app/models/bridge/stapes';
+import { SteelRow } from 'src/app/models/bridge/steel-row';
 import { Stretch } from 'src/app/models/bridge/stretch';
+import { Superstructure } from 'src/app/models/bridge/superstructure';
 import { Support } from 'src/app/models/bridge/support';
 import { Departament } from 'src/app/models/departaments/departament';
 import { Municipality } from 'src/app/models/departaments/municipality';
@@ -23,122 +37,96 @@ export class NewBridgeComponent implements OnInit {
   departaments: Departament[] = [];
   municipalities: Municipality[] = [];
   user: User = {};
-  stretchList: Stretch[] = [{}, {}, {}, {}];
+  stretchList: Stretch[] = [];
+  generalDataGeneralDataId: GeneralData = {};
 
-  scourScourId: Scour = {
-    name: 'Socavacion',
-    thereIsNot: '',
-    yesButThereIsNot: '',
-    yesThereIsExposure: '',
-    settlementOf: '',
-    extra: null,
-    pileList: [],
-  };
-  supportSupportId: Support = {
-    name: 'Apoyos',
-    material: '',
-    crushedNeoprene: '',
-    outOfPlace: '',
-    rusty: '',
-    boltMissing: '',
-    brokenBolt: '',
-    others: '',
-    extra: null,
-    pileList: [],
-  };
-  outputStape: Stapes = {};
-  entryStape: Stapes = {
+  scourScourId: Scour = { name: 'Socavacion' };
+  supportSupportId: Support = { name: 'Apoyos' };
+  outputStape: Stapes = {
     nameStapes: 'Entrada',
     rowWidthList: [
-      {
-        nameRow: 'Cortina Superior',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
-      {
-        nameRow: 'Cortina Inferior',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
-      {
-        nameRow: 'Viga de Apoyo',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
-      {
-        nameRow: 'Columnas',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
-      {
-        nameRow: 'Cuerpo',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
-      {
-        nameRow: 'Aguas Arriba',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
-      {
-        nameRow: 'Aguas Abajo',
-        material: null,
-        height: null,
-        width: null,
-        cracksInOneDirection: null,
-        cracksInTwoDirections: null,
-        stoneLossPerBlow: null,
-        steelExhibition: null,
-        others: null,
-        extra: null,
-      },
+      { nameRow: 'Cortina Superior' },
+      { nameRow: 'Cortina Inferior' },
+      { nameRow: 'Viga de Apoyo' },
+      { nameRow: 'Columnas' },
+      { nameRow: 'Cuerpo' },
+      { nameRow: 'Aguas Arriba' },
+      { nameRow: 'Aguas Abajo' },
+    ],
+    scourScourId: this.scourScourId,
+    supportSupportId: this.supportSupportId,
+  };
+  entryStape: Stapes = {
+    nameStapes: 'Salida',
+    rowWidthList: [
+      { nameRow: 'Cortina Superior' },
+      { nameRow: 'Cortina Inferior' },
+      { nameRow: 'Viga de Apoyo' },
+      { nameRow: 'Columnas' },
+      { nameRow: 'Cuerpo' },
+      { nameRow: 'Aguas Arriba' },
+      { nameRow: 'Aguas Abajo' },
     ],
     scourScourId: this.scourScourId,
     supportSupportId: this.supportSupportId,
   };
   stapesList: Stapes[] = [this.entryStape, this.outputStape];
+
+  pile: Pile = {
+    namePile: 'Pilas',
+    rowWidthPileList: [
+      { nameRow: 'Viga Cabezal' },
+      { nameRow: 'Columnas' },
+      { nameRow: 'Cuerpo' },
+    ],
+    scourScourId: this.scourScourId,
+    supportSupportId: this.supportSupportId,
+  };
+
+  //Superstructure
+  bearingSlab: BearingSlab = {};
+  sewerSystem: SewerSystem = {};
+  concreteRowList: ConcreteRow[] = [
+    { nameConcrete: 'Elemento Portante de Concreto' },
+    { nameConcrete: 'Diafragmas Concreto' },
+  ];
+  steelRowList: SteelRow[] = [
+    { nameSteel: 'Elemento Portante de Acero' },
+    { nameSteel: 'Diafragmas Acero' },
+    { nameSteel: 'Estructura Tipo Sercha' },
+  ];
+  superstructure: Superstructure = {
+    concreteRowList: this.concreteRowList,
+    bearingSlabBearingSlabId: this.bearingSlab,
+    sewerSystemSewerSystemId: this.sewerSystem,
+    steelRowList: this.steelRowList,
+  };
+
+  //NonStructuralElements
+  handrailRailing: HandrailRailing = {};
+  railingPosts: RailingPosts = {};
+  barrier: Barrier = {};
+  councilList: Council[] = [
+    { nameCouncil: 'Junta (Entrada)' },
+    { nameCouncil: 'Junta (Salida)' },
+    { nameCouncil: 'Juntas Intermedias' },
+  ];
+  slabAccessList: SlabAccess[] = [
+    { nameSalabAccess: 'Losa Acceso (Entrada)' },
+    { nameSalabAccess: 'Losa Acceso (Salida)' },
+  ];
+  protectionWorksList: ProtectionWorks[] = [
+    { nameProtectionWorks: 'Obras Proteccion (aguas arriba)' },
+    { nameProtectionWorks: 'Obras Proteccion (aguas abajo)' },
+  ];
+  nonStructuralElements: NonStructuralElements = {
+    handrailRailingHandrailRailingId: this.handrailRailing,
+    railingPostsRailingPostsId: this.railingPosts,
+    barrierBarrierId: this.barrier,
+    councilList: this.councilList,
+    slabAccessList: this.slabAccessList,
+    protectionWorksList: this.protectionWorksList,
+  };
 
   public form: FormGroup = this.formBuilder.group({});
 
@@ -153,6 +141,9 @@ export class NewBridgeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.stretchList = [{}, {}, {}, {}];
+    this.stapesList = [this.entryStape, this.outputStape];
+
     this.getAllDepartaments();
     this.getUserByUsername(this.tokenService.getUserName());
     this.form = this.formBuilder.group({
@@ -172,8 +163,10 @@ export class NewBridgeComponent implements OnInit {
       status: ['', [Validators.required]],
       evaluationStartDate: [],
       user: [],
-      stretchList: this.stretchList,
-      stapesList: this.stapesList,
+      stretchList: [this.stretchList],
+      stapesList: [this.stapesList],
+      generalDataGeneralDataId: [this.generalDataGeneralDataId],
+      pilePileId: [this.pile],
     });
   }
 
@@ -211,8 +204,10 @@ export class NewBridgeComponent implements OnInit {
    * Save bridge
    */
   onSave(): void {
+    console.log(this.form.value);
     this.form.value.evaluationStartDate = new Date();
     this.form.value.user = this.user;
+
     this.bridgeService.create(this.form.value).subscribe(
       (data) => {
         this.toastService.showSuccess(

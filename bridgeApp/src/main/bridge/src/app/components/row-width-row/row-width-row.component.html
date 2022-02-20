@@ -1,0 +1,96 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">{{ this.rowWidth.nameRow }}</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cracksInOneDirection"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en una direccion</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cracksInTwoDirections"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en dos direcciones</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input formControlName="others" class="input" type="text" pInputText />
+        <label class="label">Otros</label>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="height"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Altura (m)</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="width"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Ancho (m)</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="stoneLossPerBlow"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Perdida de petreos por golpe</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="steelExhibition"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Exposicion de acero</label>
+      </span>
+    </td>
+  </tr>
+</form>

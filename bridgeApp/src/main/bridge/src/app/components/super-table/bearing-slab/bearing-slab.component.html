@@ -1,0 +1,82 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">Losa de Rodamiento</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cracksInOneDirection"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en una direccion</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cracksInTwoDirections"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en dos direcciones</label>
+      </span>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="detachmentOf"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Desprendimiento de</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="potholes"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Baches</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="steelExhibition"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Exposicion de acero</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input formControlName="others" class="input" type="text" pInputText />
+        <label class="label">Otros</label>
+      </span>
+    </td>
+  </tr>
+</form>

@@ -3,4 +3,5 @@ export interface Stretch {
   length?: number;
   typeSection?: string;
   name?: null;
+  bridgeBridgeId?: number;
 }

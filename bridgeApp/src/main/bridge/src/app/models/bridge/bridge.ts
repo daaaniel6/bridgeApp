@@ -1,7 +1,9 @@
 import { Municipality } from '../departaments/municipality';
 import { User } from '../user/user';
 import { GeneralData } from './general-data';
+import { Pile } from './pile';
 import { Stretch } from './stretch';
+import { Superstructure } from './superstructure';
 
 export interface Bridge {
   bridgeId?: number;
@@ -35,7 +37,7 @@ export interface Bridge {
   municipalityMunicipalityId?: Municipality;
   nonStructuralElementsNonStructuralElementsId?: null;
   otherOtherId?: null;
-  pilePileId?: null;
-  superstructureSuperstructureId?: null;
+  pilePileId?: Pile;
+  superstructureSuperstructureId?: Superstructure;
   user?: User | null;
 }

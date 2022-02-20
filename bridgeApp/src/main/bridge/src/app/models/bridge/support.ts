@@ -1,13 +1,15 @@
+import { Pile } from './pile';
+
 export interface Support {
   supportId?: number;
   name?: string;
-  material?: string;
-  crushedNeoprene?: string;
-  outOfPlace?: string;
-  rusty?: string;
-  boltMissing?: string;
-  brokenBolt?: string;
-  others?: string;
+  material?: string | null;
+  crushedNeoprene?: string | null;
+  outOfPlace?: string | null;
+  rusty?: string | null;
+  boltMissing?: string | null;
+  brokenBolt?: string | null;
+  others?: string | null;
   extra?: null;
-  pileList?: any[];
+  //pileList?: Pile[];
 }

@@ -9,4 +9,5 @@ export interface Stapes {
   rowWidthList?: RowWidth[];
   scourScourId?: Scour;
   supportSupportId?: Support;
+  bridgeBridgeId?: number;
 }

@@ -96,6 +96,13 @@ import { UpdateBridgeComponent } from './pages/bridge/update-bridge/update-bridg
 import { NewRegisterComponent } from './pages/bridge/new-register/new-register.component';
 import { BridgeComunicationService } from './services/comunication/bridge-comunication.service';
 import { StretchRowComponent } from './components/stretch-row/stretch-row.component';
+import { RowWidthRowComponent } from './components/row-width-row/row-width-row.component';
+import { ScourComponent } from './components/scour/scour.component';
+import { SupportComponent } from './components/support/support.component';
+import { ConcreteRowComponent } from './components/super-table/concrete-row/concrete-row.component';
+import { SteelRowComponent } from './components/super-table/steel-row/steel-row.component';
+import { SewerSystemComponent } from './components/super-table/sewer-system/sewer-system.component';
+import { BearingSlabComponent } from './components/super-table/bearing-slab/bearing-slab.component';
 
 @NgModule({
   declarations: [
@@ -132,6 +139,13 @@ import { StretchRowComponent } from './components/stretch-row/stretch-row.compon
     UpdateBridgeComponent,
     NewRegisterComponent,
     StretchRowComponent,
+    RowWidthRowComponent,
+    ScourComponent,
+    SupportComponent,
+    ConcreteRowComponent,
+    SteelRowComponent,
+    SewerSystemComponent,
+    BearingSlabComponent,
   ],
   imports: [
     BrowserModule,
