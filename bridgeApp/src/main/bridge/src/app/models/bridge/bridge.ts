@@ -1,6 +1,9 @@
 import { Municipality } from '../departaments/municipality';
 import { User } from '../user/user';
+import { Channel } from './channel/channel';
 import { GeneralData } from './general-data';
+import { NonStructuralElements } from './nonStructuralElements/non-structural-elements';
+import { Other } from './other/other';
 import { Pile } from './pile';
 import { Stretch } from './stretch';
 import { Superstructure } from './superstructure';
@@ -32,11 +35,11 @@ export interface Bridge {
   stapesList?: any[];
   commentList?: any[];
   sensorList?: any[];
-  channelChannelId?: null;
+  channelChannelId?: Channel;
   generalDataGeneralDataId?: GeneralData;
   municipalityMunicipalityId?: Municipality;
-  nonStructuralElementsNonStructuralElementsId?: null;
-  otherOtherId?: null;
+  nonStructuralElementsNonStructuralElementsId?: NonStructuralElements;
+  otherOtherId?: Other;
   pilePileId?: Pile;
   superstructureSuperstructureId?: Superstructure;
   user?: User | null;

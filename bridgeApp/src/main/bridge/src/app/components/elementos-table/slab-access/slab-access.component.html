@@ -1,0 +1,44 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">{{ slabAccess.nameSalabAccess }}</td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td colspan="2">
+      <span class="p-float-label">
+        <input
+          formControlName="goodCondition"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Buen estado</label>
+      </span>
+    </td>
+    <td colspan="2">
+      <div>
+        <label class="label" for="float-input">Daños</label>
+      </div>
+      <p-dropdown
+        formControlName="damage"
+        [options]="damageOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Daños"
+        [editable]="true"
+        [virtualScroll]="true"
+      ></p-dropdown>
+    </td>
+  </tr>
+</form>

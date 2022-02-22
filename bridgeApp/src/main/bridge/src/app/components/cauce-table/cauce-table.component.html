@@ -1,111 +1,130 @@
-<table class="container">
-  <tbody>
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Nombre del puente</label>
-        </span>
-      </td>
-      <td>
-        <div>
-          <label class="label" for="float-input"
-            >Tipo de cuerpo de agua existente adyacente al puente</label
-          >
-        </div>
-        <p-dropdown
-          [options]="cuerpo"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Seleccione o escriba otro"
-          [editable]="true"
-          [virtualScroll]="true"
-        ></p-dropdown>
-      </td>
-    </tr>
+<form [formGroup]="form" novalidate>
+  <table class="container">
+    <tbody>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <input
+              formControlName="riverName"
+              class="input"
+              type="text"
+              pInputText
+            />
+            <label class="label">Nombre del rio</label>
+          </span>
+        </td>
+        <td>
+          <div>
+            <label class="label" for="float-input"
+              >Tipo de cuerpo de agua existente adyacente al puente</label
+            >
+          </div>
+          <p-dropdown
+            formControlName="bodyType"
+            [options]="bodyTypeOptions"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Seleccione o escriba otro"
+            [editable]="true"
+            [virtualScroll]="true"
+          ></p-dropdown>
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <div>
-          <label class="label" for="float-input">Estado del cauce</label>
-        </div>
-        <p-dropdown
-          [options]="channelStatusOptions"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Seleccione o escriba otro"
-          [editable]="true"
-          [virtualScroll]="true"
-        ></p-dropdown>
-      </td>
-      <td>
-        <div>
-          <label class="label" for="float-input"
-            >Estado zona adyacente a estibos</label
-          >
-        </div>
-        <p-dropdown
-          [options]="channelStatusOptions"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Estados"
-          class="dropdown"
-        ></p-dropdown>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div>
-          <label class="label" for="float-input">Encauzamiento</label>
-        </div>
-        <p-dropdown
-          [options]="channelStatusOptions"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Encauzamiento"
-          class="dropdown"
-        ></p-dropdown>
-      </td>
-      <td>
-        <div>
-          <label class="label" for="float-input"
-            >A presentado desbordamiento</label
-          >
-        </div>
-        <p-dropdown
-          [options]="overflowOptions"
-          optionLabel="label"
-          optionValue="value"
-          placeholder="Seleccione una opcion"
-          class="dropdown"
-        ></p-dropdown>
-      </td>
-    </tr>
+      <tr>
+        <td>
+          <div>
+            <label class="label" for="float-input">Estado del cauce</label>
+          </div>
+          <p-dropdown
+            formControlName="channelStatus"
+            [options]="channelStatusOptions"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Seleccione o escriba otro"
+            [editable]="true"
+            [virtualScroll]="true"
+          ></p-dropdown>
+        </td>
+        <td>
+          <div>
+            <label class="label" for="float-input"
+              >Estado zona adyacente a estibos</label
+            >
+          </div>
+          <p-dropdown
+            formControlName="stateZoneAdjacentToAbutments"
+            [options]="channelStatusOptions"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Estados"
+            class="dropdown"
+          ></p-dropdown>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <label class="label" for="float-input">Encauzamiento</label>
+          </div>
+          <p-dropdown
+            formControlName="channeling"
+            [options]="channelStatusOptions"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Encauzamiento"
+            class="dropdown"
+          ></p-dropdown>
+        </td>
+        <td>
+          <div>
+            <label class="label" for="float-input"
+              >A presentado desbordamiento</label
+            >
+          </div>
+          <p-dropdown
+            formControlName="overflow"
+            [options]="overflowOptions"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="Seleccione una opcion"
+            class="dropdown"
+          ></p-dropdown>
+        </td>
+      </tr>
 
-    <tr>
-      <td>
-        <span class="p-float-label">
-          <input class="input" type="text" pInputText />
-          <label class="label">Frecuencia (años)</label>
-        </span>
-      </td>
-      <td>
-        <span class="p-float-label">
-          <p-calendar
-            dateFormat="mm-dd-yy"
-            [monthNavigator]="true"
-            [yearNavigator]="true"
-            yearRange="1000:3030"
-            [touchUI]="true"
-            [showIcon]="true"
-            appendTo="body"
-            [baseZIndex]="999999"
-          ></p-calendar>
-          <label class="label" for="float-input"
-            >Fecha ultimo desbordamiento</label
-          >
-        </span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+      <tr>
+        <td>
+          <span class="p-float-label">
+            <p-inputNumber
+              formControlName="frequency"
+              [inputStyle]="{ width: '100%' }"
+              mode="decimal"
+              locale="en-US"
+              [minFractionDigits]="2"
+            ></p-inputNumber>
+            <label class="label" for="float-input">Frecuencia (años)</label>
+          </span>
+        </td>
+        <td>
+          <span class="p-float-label">
+            <p-calendar
+              formControlName="lastOverflowDate"
+              dateFormat="yy-mm-dd"
+              [monthNavigator]="true"
+              [yearNavigator]="true"
+              yearRange="1000:3030"
+              [touchUI]="true"
+              [showIcon]="true"
+              appendTo="body"
+              [baseZIndex]="999999"
+            ></p-calendar>
+            <label class="label" for="float-input"
+              >Fecha ultimo desbordamiento</label
+            >
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

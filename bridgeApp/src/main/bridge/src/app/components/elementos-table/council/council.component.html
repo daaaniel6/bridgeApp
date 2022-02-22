@@ -1,0 +1,47 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">{{ council.nameCouncil }}</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td colspan="2">
+      <span class="p-float-label">
+        <input
+          formControlName="missingItem"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Falta elemento</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cleanGasket"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Junta limpia</label>
+      </span>
+    </td>
+    <td colspan="2">
+      <span class="p-float-label">
+        <input formControlName="damage" class="input" type="text" pInputText />
+        <label class="label">Daños</label>
+      </span>
+    </td>
+  </tr>
+</form>

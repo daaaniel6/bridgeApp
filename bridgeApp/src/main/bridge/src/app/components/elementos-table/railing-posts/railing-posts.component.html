@@ -1,0 +1,70 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">Postes barandal (especificar lado)</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="absenceOfSection"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Ausencia de seccion</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="elementDeformation"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Deformacion de elemento</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="beaten"
+          [inputStyle]="{ width: '100%' }"
+          inputId="integeronly"
+        >
+        </p-inputNumber>
+        <label class="label" for="float-input">Golpeados (cuantos)</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="painting"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Pintura</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input formControlName="others" class="input" type="text" pInputText />
+        <label class="label">Otros (Especificar)</label>
+      </span>
+    </td>
+  </tr>
+</form>

@@ -1,0 +1,71 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">Barreras</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cracksInOneDirection"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en una direccion</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="cracksInTwoDirections"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Grietas en dos direcciones</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="beaten"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Golpeado (longitud)</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="painting"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Pintura</label>
+      </span>
+    </td>
+
+    <td>
+      <span class="p-float-label">
+        <input formControlName="others" class="input" type="text" pInputText />
+        <label class="label">Otros (Especificar)</label>
+      </span>
+    </td>
+  </tr>
+</form>

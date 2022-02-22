@@ -103,6 +103,12 @@ import { ConcreteRowComponent } from './components/super-table/concrete-row/conc
 import { SteelRowComponent } from './components/super-table/steel-row/steel-row.component';
 import { SewerSystemComponent } from './components/super-table/sewer-system/sewer-system.component';
 import { BearingSlabComponent } from './components/super-table/bearing-slab/bearing-slab.component';
+import { CouncilComponent } from './components/elementos-table/council/council.component';
+import { BarrierComponent } from './components/elementos-table/barrier/barrier.component';
+import { ProtectionWorksComponent } from './components/elementos-table/protection-works/protection-works.component';
+import { SlabAccessComponent } from './components/elementos-table/slab-access/slab-access.component';
+import { HandrailRailingComponent } from './components/elementos-table/handrail-railing/handrail-railing.component';
+import { RailingPostsComponent } from './components/elementos-table/railing-posts/railing-posts.component';
 
 @NgModule({
   declarations: [
@@ -146,6 +152,12 @@ import { BearingSlabComponent } from './components/super-table/bearing-slab/bear
     SteelRowComponent,
     SewerSystemComponent,
     BearingSlabComponent,
+    CouncilComponent,
+    BarrierComponent,
+    ProtectionWorksComponent,
+    SlabAccessComponent,
+    HandrailRailingComponent,
+    RailingPostsComponent,
   ],
   imports: [
     BrowserModule,

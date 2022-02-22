@@ -1,0 +1,69 @@
+<form [formGroup]="form" novalidate>
+  <tr>
+    <td colspan="2">{{ protectionWorks.nameProtectionWorks }}</td>
+  </tr>
+  <tr>
+    <td>
+      <span class="p-float-label">
+        <input
+          formControlName="material"
+          class="input"
+          type="text"
+          pInputText
+        />
+        <label class="label">Material</label>
+      </span>
+    </td>
+
+    <td colspan="2">
+      <div>
+        <label class="label" for="float-input">Tipo</label>
+      </div>
+      <p-dropdown
+        formControlName="type"
+        [options]="typeOptions"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Tipo"
+        [editable]="true"
+        [virtualScroll]="true"
+      ></p-dropdown>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="long1"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Largo</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="width"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Ancho</label>
+      </span>
+    </td>
+    <td>
+      <span class="p-float-label">
+        <p-inputNumber
+          formControlName="height"
+          [inputStyle]="{ width: '100%' }"
+          mode="decimal"
+          locale="en-US"
+          [minFractionDigits]="2"
+        ></p-inputNumber>
+        <label class="label" for="float-input">Altura</label>
+      </span>
+    </td>
+  </tr>
+</form>
