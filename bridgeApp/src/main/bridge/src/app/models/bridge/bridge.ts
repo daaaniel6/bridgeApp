@@ -1,6 +1,7 @@
 import { Municipality } from '../departaments/municipality';
 import { User } from '../user/user';
 import { Channel } from './channel/channel';
+import { Comment } from './comment/comment';
 import { GeneralData } from './general-data';
 import { NonStructuralElements } from './nonStructuralElements/non-structural-elements';
 import { Other } from './other/other';
@@ -33,7 +34,7 @@ export interface Bridge {
   imageList?: any[];
   blueprintList?: any[];
   stapesList?: any[];
-  commentList?: any[];
+  commentList?: Comment[];
   sensorList?: any[];
   channelChannelId?: Channel;
   generalDataGeneralDataId?: GeneralData;

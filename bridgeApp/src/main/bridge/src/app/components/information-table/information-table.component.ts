@@ -15,6 +15,7 @@ import { BridgeComunicationService } from 'src/app/services/comunication/bridge-
 export class InformationTableComponent implements OnInit {
   departaments: Departament[] = [];
   municipalities: Municipality[] = [];
+  disabled: boolean = true;
 
   public form: FormGroup = this.formBuilder.group({});
 
@@ -55,7 +56,7 @@ export class InformationTableComponent implements OnInit {
     this.getAllDepartaments();
     this.form = this.formBuilder.group({
       bridgeId: [],
-      name: ['', [Validators.required]],
+      name: [],
       code: [],
       route: [],
       mileage: [],
@@ -91,12 +92,15 @@ export class InformationTableComponent implements OnInit {
     });
 
     this.form.setValue(this.bridgeComunicationService.getBridge());
+
     this.onDepartamentChange();
 
+    //this.form.controls['name'].disable({ onlySelf: true });
     /**
      * Save changes in bridge object
      */
     this.form.valueChanges.subscribe((values) => {
+      console.log(values);
       this.bridgeService.update(values).subscribe((data) => {
         this.bridgeComunicationService.setBridge(values);
         console.log('Guardado con exito', data);
@@ -140,6 +144,5 @@ export class InformationTableComponent implements OnInit {
     this.bridgeService.create(this.form.value).subscribe((data) => {
       console.log('Guardado con exito', data);
     });
-    //console.log(this.form.value);
   }
 }

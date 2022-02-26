@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
 
         this.toastService.showSuccess(
           'Login correcto',
-          'Bienvenido' + this.username
+          'Bienvenido ' + this.username
         );
         window.location.reload();
         this.router.navigate(['/dashboard']);

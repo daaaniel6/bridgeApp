@@ -4,6 +4,7 @@ import { Bridge } from 'src/app/models/bridge/bridge';
 import { BridgeService } from 'src/app/services/bridges/bridge.service';
 import { BridgeComunicationService } from 'src/app/services/comunication/bridge-comunication.service';
 import { ToastService } from 'src/app/services/notifications/toast.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-bridge-selected',
@@ -25,6 +26,7 @@ export class BridgeSelectedComponent implements OnInit {
     private route: Router,
     private bridgeService: BridgeService,
     private toastService: ToastService,
+    private tokenService: TokenService,
     private bridgeComunicationService: BridgeComunicationService
   ) {}
 
@@ -59,6 +61,17 @@ export class BridgeSelectedComponent implements OnInit {
   getAllBridges(): void {
     this.bridgeService.getAll().subscribe((data) => {
       this.bridges = data;
+
+      let bridgesInProgress: Bridge[] = [];
+      this.bridges.filter((bridge) => {
+        if (
+          bridge.user?.userName === this.tokenService.getUserName() &&
+          bridge.evaluationEndDate === null
+        ) {
+          bridgesInProgress.push(bridge);
+        }
+      });
+      this.bridges = bridgesInProgress;
     });
   }
 }

@@ -8,6 +8,8 @@ export const environment = {
   changePasswordURL: 'http://localhost:8080/email-password/',
   bridgeURL: 'http://localhost:8080/api/bridges',
   departamentURL: 'http://localhost:8080/api/departaments',
+  imagesURL: 'http://localhost:8080/api/images',
+  commentsURL: 'http://localhost:8080/api/comments',
 };
 
 /*

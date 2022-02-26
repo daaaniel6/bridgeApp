@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BearingSlab } from 'src/app/models/bridge/bearing-slab';
+import { Channel } from 'src/app/models/bridge/channel/channel';
 import { ConcreteRow } from 'src/app/models/bridge/concrete-row';
 import { GeneralData } from 'src/app/models/bridge/general-data';
 import { Barrier } from 'src/app/models/bridge/nonStructuralElements/barrier';
@@ -11,6 +12,7 @@ import { NonStructuralElements } from 'src/app/models/bridge/nonStructuralElemen
 import { ProtectionWorks } from 'src/app/models/bridge/nonStructuralElements/protection-works';
 import { RailingPosts } from 'src/app/models/bridge/nonStructuralElements/railing-posts';
 import { SlabAccess } from 'src/app/models/bridge/nonStructuralElements/slab-access';
+import { Other } from 'src/app/models/bridge/other/other';
 import { Pile } from 'src/app/models/bridge/pile';
 import { Scour } from 'src/app/models/bridge/scour';
 import { SewerSystem } from 'src/app/models/bridge/sewer-system';
@@ -128,6 +130,9 @@ export class NewBridgeComponent implements OnInit {
     protectionWorksList: this.protectionWorksList,
   };
 
+  channel: Channel = {};
+  other: Other = {};
+
   public form: FormGroup = this.formBuilder.group({});
 
   constructor(
@@ -167,6 +172,12 @@ export class NewBridgeComponent implements OnInit {
       stapesList: [this.stapesList],
       generalDataGeneralDataId: [this.generalDataGeneralDataId],
       pilePileId: [this.pile],
+      superstructureSuperstructureId: [this.superstructure],
+      nonStructuralElementsNonStructuralElementsId: [
+        this.nonStructuralElements,
+      ],
+      channelChannelId: [this.channel],
+      otherOtherId: [this.other],
     });
   }
 

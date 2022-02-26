@@ -1,0 +1,334 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<app-sidebar></app-sidebar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <app-page-header pageTitle="Foro / {{ bridge.name }}"></app-page-header>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <!-- Main content -->
+  <section class="content">
+    <!-- Default box -->
+    <div class="card card-solid">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-12 col-sm-6">
+            <h3 class="d-inline-block d-sm-none">
+              Esto no se que es pero lo dejare aca
+            </h3>
+            <div class="col-12">
+              <img
+                [src]="imageSelectSafeUrl"
+                class="product-image"
+                alt="Product Image"
+              />
+            </div>
+            <div class="col-12 product-image-thumbs">
+              <div
+                *ngFor="let image of imagesList"
+                class="product-image-thumb active"
+              >
+                <img
+                  [src]="this.convertToImage(image)"
+                  (click)="clickImage(image)"
+                  alt="Product Image"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6">
+            <h3 class="my-3">{{ bridge.name }}</h3>
+            <p>
+              {{ bridge.otherOtherId?.observation }}
+            </p>
+
+            <hr />
+            <h4>Estado del puente</h4>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label
+                *ngIf="bridge.status == 'Bueno'"
+                class="btn btn-default text-center active"
+              >
+                <input
+                  type="radio"
+                  name="color_option"
+                  id="color_option_a1"
+                  autocomplete="off"
+                  checked
+                />
+                Bueno
+                <br />
+                <i class="fas fa-circle fa-2x text-green"></i>
+              </label>
+              <label
+                *ngIf="bridge.status == 'Malo'"
+                class="btn btn-default text-center"
+              >
+                <input
+                  type="radio"
+                  name="color_option"
+                  id="color_option_a4"
+                  autocomplete="off"
+                />
+                Malo
+                <br />
+                <i class="fas fa-circle fa-2x text-red"></i>
+              </label>
+              <label
+                *ngIf="bridge.status == 'Regular'"
+                class="btn btn-default text-center"
+              >
+                <input
+                  type="radio"
+                  name="color_option"
+                  id="color_option_a5"
+                  autocomplete="off"
+                />
+                Regular
+                <br />
+                <i class="fas fa-circle fa-2x text-orange"></i>
+              </label>
+            </div>
+
+            <h4 class="mt-3">Ubicación <small>del puente</small></h4>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-default text-center">
+                <input
+                  type="radio"
+                  name="color_option"
+                  id="color_option_b1"
+                  autocomplete="off"
+                />
+                <span class="text-xl">Departamento</span>
+                <br />
+                {{
+                  bridge.municipalityMunicipalityId?.departamentDepartamentId
+                    ?.name
+                }}
+              </label>
+              <label class="btn btn-default text-center">
+                <input
+                  type="radio"
+                  name="color_option"
+                  id="color_option_b2"
+                  autocomplete="off"
+                />
+                <span class="text-xl">Municipio</span>
+                <br />
+                {{ bridge.municipalityMunicipalityId?.name }}
+              </label>
+            </div>
+
+            <div class="bg-gray py-2 px-3 mt-4">
+              <h4>Encargado del registro:</h4>
+              <h2 class="mb-0">
+                <img src="../../../assets/images/icons/userForo.gif" alt="" />
+              </h2>
+              <h4 class="mt-0">
+                <small>{{ bridge.user?.name }} </small>
+              </h4>
+              <h4 class="mt-0">
+                <small>Contacto: {{ bridge.user?.email }} </small>
+              </h4>
+            </div>
+
+            <div class="mt-4" routerLink="/all-registrations">
+              <div class="btn btn-primary btn-lg btn-flat">
+                <i class="fas fa-cart-plus fa-lg mr-2"></i>
+                Crear Mi Registro
+              </div>
+
+              <div class="btn btn-default btn-lg btn-flat">
+                <i class="fas fa-heart fa-lg mr-2"></i>
+                Favoritos
+              </div>
+            </div>
+
+            <div class="mt-4 product-share">
+              <a class="text-gray">
+                <i class="fab fa-facebook-square fa-2x"></i>
+              </a>
+              <a class="text-gray">
+                <i class="fab fa-twitter-square fa-2x"></i>
+              </a>
+              <a class="text-gray">
+                <i class="fas fa-envelope-square fa-2x"></i>
+              </a>
+              <a class="text-gray">
+                <i class="fas fa-rss-square fa-2x"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-4">
+          <nav class="w-100">
+            <div class="nav nav-tabs" id="product-tab" role="tablist">
+              <a
+                class="nav-item nav-link active"
+                id="product-desc-tab"
+                data-toggle="tab"
+                href="#product-desc"
+                role="tab"
+                aria-controls="product-desc"
+                aria-selected="true"
+                >Descripcion</a
+              >
+              <a
+                class="nav-item nav-link"
+                id="product-comments-tab"
+                data-toggle="tab"
+                href="#product-comments"
+                role="tab"
+                aria-controls="product-comments"
+                aria-selected="false"
+                >Comentarios</a
+              >
+              <a
+                class="nav-item nav-link"
+                id="product-rating-tab"
+                data-toggle="tab"
+                href="#product-rating"
+                role="tab"
+                aria-controls="product-rating"
+                aria-selected="false"
+                >Informacion</a
+              >
+            </div>
+          </nav>
+          <div class="tab-content p-3" id="nav-tabContent">
+            <div
+              class="tab-pane fade show active"
+              id="product-desc"
+              role="tabpanel"
+              aria-labelledby="product-desc-tab"
+            >
+              Guatemala, al igual que las carreteras, también cuenta con una
+              serie de puentes que ayudan en la comunicación terrestre, y al
+              transporte de personas y mercancías. Guatemala cuenta con una
+              serie de puentes, entre lo cuales podemos encontrar: Puente El
+              Incienso Este importante puente es parte del periférico en la
+              ciudad de Guatemala, construido a inicios de la década de los años
+              70, el cual fue llamado de esta forma por la cantidad de nubes o
+              neblina que se acumula por la mañana en la parte baja. El Puente
+              El Incienso esta ubicado como parte integral del Anillo Periférico
+              (Norte -Sur) que comunica a las zonas 1, 2 y 3 con la zona 7 de la
+              Ciudad Capital. Puente Belice Cuya construcción fue finalizada en
+              el año de 1959, la cual fue realizada, en el término de nueve
+              años, durante el gobierno de Jacobo Arbenz, con dos grandes
+              fundiciones de concreto, que sostienen las estructuras de hierro
+              en forma de arcos, que se encuentran unidas por más de 45 mil
+              remaches y que atraviesan el puente, los cuales fueron diseñados
+              en Alemania y construido de acero en los Estados Unidos de
+              América.
+            </div>
+            <div
+              class="tab-pane fade"
+              id="product-comments"
+              role="tabpanel"
+              aria-labelledby="product-comments-tab"
+            >
+              <div class="active tab-pane" id="activity">
+                <!-- Post -->
+                <div *ngFor="let comment of commentsList" class="post">
+                  <div class="user-block">
+                    <img
+                      class="img-circle img-bordered-sm"
+                      src="../../../assets/images/icons/icons8-usuario-masculino.gif"
+                      alt="user image"
+                    />
+                    <span class="username">
+                      <a>{{ comment.user?.userName }}</a>
+                      <a class="float-right btn-tool"
+                        ><i class="fas fa-times"></i
+                      ></a>
+                    </span>
+                    <span class="description"
+                      >Fecha de publicacion: {{ comment.date }}</span
+                    >
+                    <span class="description"
+                      >Nombre: {{ comment.user?.name }}</span
+                    >
+                  </div>
+                  <!-- /.user-block -->
+                  <p>
+                    {{ comment.comment }}
+                  </p>
+
+                  <p>
+                    <a class="link-black text-sm mr-2"
+                      ><i class="fas fa-share mr-1"></i> Share</a
+                    >
+                    <a class="link-black text-sm"
+                      ><i class="far fa-thumbs-up mr-1"></i> Like</a
+                    >
+                    <span class="float-right">
+                      <a class="link-black text-sm">
+                        <i class="far fa-comments mr-1"></i> Comments ({{
+                          commentsList.length
+                        }})
+                      </a>
+                    </span>
+                  </p>
+                </div>
+                <!-- /.post -->
+
+                <!-- Comment input -->
+                <div class="post clearfix">
+                  <h4 class="mt-3">Agrega un comentario <small></small></h4>
+                  <div class="form-horizontal">
+                    <div class="input-group input-group-sm mb-0">
+                      <input
+                        [(ngModel)]="textComment"
+                        class="form-control form-control-sm"
+                        placeholder="Comentar"
+                      />
+                      <div class="input-group-append">
+                        <button
+                          (click)="addComment()"
+                          type="submit"
+                          class="btn btn-danger"
+                        >
+                          Enviar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End comment input -->
+              </div>
+            </div>
+            <div
+              class="tab-pane fade"
+              id="product-rating"
+              role="tabpanel"
+              aria-labelledby="product-rating-tab"
+            >
+              info
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </section>
+  <!-- /.content -->
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<app-footer></app-footer>
+<!-- /.Footer -->
+<script>
+  $(document).ready(function () {
+    $(".product-image-thumb").on("click", function () {
+      var $image_element = $(this).find("img");
+      $(".product-image").prop("src", $image_element.attr("src"));
+      $(".product-image-thumb.active").removeClass("active");
+      $(this).addClass("active");
+    });
+  });
+</script>

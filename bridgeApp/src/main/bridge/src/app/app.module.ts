@@ -109,6 +109,11 @@ import { ProtectionWorksComponent } from './components/elementos-table/protectio
 import { SlabAccessComponent } from './components/elementos-table/slab-access/slab-access.component';
 import { HandrailRailingComponent } from './components/elementos-table/handrail-railing/handrail-railing.component';
 import { RailingPostsComponent } from './components/elementos-table/railing-posts/railing-posts.component';
+import { ExistingBridgesComponent } from './pages/bridge/existing-bridges/existing-bridges.component';
+import { ImageComponent } from './pages/image/image.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
+import { RegisterTableComponent } from './pages/bridge/register-table/register-table.component';
+import { ForumComponent } from './pages/forum/forum.component';
 
 @NgModule({
   declarations: [
@@ -158,6 +163,11 @@ import { RailingPostsComponent } from './components/elementos-table/railing-post
     SlabAccessComponent,
     HandrailRailingComponent,
     RailingPostsComponent,
+    ExistingBridgesComponent,
+    ImageComponent,
+    GalleryComponent,
+    RegisterTableComponent,
+    ForumComponent,
   ],
   imports: [
     BrowserModule,

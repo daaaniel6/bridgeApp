@@ -11,6 +11,10 @@ import { SendEmailComponent } from './pages/changePassword/send-email/send-email
 import { ChangePasswordComponent } from './pages/changePassword/change-password/change-password.component';
 import { NewBridgeComponent } from './pages/bridge/new-bridge/new-bridge.component';
 import { NewRegisterComponent } from './pages/bridge/new-register/new-register.component';
+import { ExistingBridgesComponent } from './pages/bridge/existing-bridges/existing-bridges.component';
+import { ImageComponent } from './pages/image/image.component';
+import { RegisterTableComponent } from './pages/bridge/register-table/register-table.component';
+import { ForumComponent } from './pages/forum/forum.component';
 
 const routes: Routes = [
   {
@@ -44,6 +48,12 @@ const routes: Routes = [
     data: { expectedRol: ['admin', 'user'] },
   },
   {
+    path: 'selectExistingBridges',
+    component: ExistingBridgesComponent,
+    canActivate: [ProdGuardService],
+    data: { expectedRol: ['admin', 'user'] },
+  },
+  {
     path: 'selectBridge',
     component: BridgeSelectedComponent,
     canActivate: [ProdGuardService],
@@ -52,6 +62,24 @@ const routes: Routes = [
   {
     path: 'newRegister',
     component: NewRegisterComponent,
+    canActivate: [ProdGuardService],
+    data: { expectedRol: ['admin', 'user'] },
+  },
+  {
+    path: 'all-registrations',
+    component: RegisterTableComponent,
+    canActivate: [ProdGuardService],
+    data: { expectedRol: ['admin', 'user'] },
+  },
+  {
+    path: 'forum',
+    component: ForumComponent,
+    canActivate: [ProdGuardService],
+    data: { expectedRol: ['admin', 'user'] },
+  },
+  {
+    path: 'image',
+    component: ImageComponent,
     canActivate: [ProdGuardService],
     data: { expectedRol: ['admin', 'user'] },
   },

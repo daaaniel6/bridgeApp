@@ -30,7 +30,7 @@
           <span class="p-float-label">
             <input
               formControlName="name"
-              class="input"
+              class="input disable"
               id="float-input"
               type="text"
               pInputText
@@ -42,7 +42,7 @@
           <span class="p-float-label">
             <input
               formControlName="code"
-              class="input"
+              class="input disable"
               type="text"
               pInputText
             />
@@ -66,6 +66,7 @@
               formControlName="mileage"
               [inputStyle]="{ width: '100%' }"
               inputId="integeronly"
+              class="disable"
             >
             </p-inputNumber>
             <label class="label" for="float-input">Kilometraje</label>
@@ -85,7 +86,7 @@
             [options]="departaments"
             optionLabel="name"
             placeholder="Departamento"
-            class="dropdown"
+            class="dropdown disable"
             (onChange)="onDepartamentChange()"
           ></p-dropdown>
         </td>
@@ -98,6 +99,7 @@
             [options]="municipalities"
             optionLabel="name"
             placeholder="Municipio"
+            class="dropdown disable"
           ></p-dropdown>
         </td>
       </tr>

@@ -11,6 +11,12 @@
   }
 }
 
+@media (max-width: 950px) {
+  .responsive {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 40rem) {
   :host ::ng-deep {
     .p-datatable {

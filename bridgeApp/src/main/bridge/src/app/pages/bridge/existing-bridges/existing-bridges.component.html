@@ -1,0 +1,149 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<app-sidebar></app-sidebar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <app-page-header pageTitle="Puentes en proceso"></app-page-header>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <div class="text">Seleccione un puente y presione continuar</div>
+  <div class="card">
+    <!-- <h5>Session Storage</h5> -->
+    <p-table
+      #dt
+      [value]="bridges"
+      selectionMode="single"
+      [(selection)]="selectedBridge"
+      dataKey="name"
+      styleClass="p-datatable-customers"
+      [rows]="10"
+      [paginator]="true"
+      stateStorage="local"
+      stateKey="statedemo-local"
+      [columns]="cols"
+      responsiveLayout="scroll"
+      [responsive]="true"
+    >
+      <ng-template pTemplate="caption">
+        <div class="p-d-flex">
+          <button
+            type="button"
+            pButton
+            pRipple
+            icon="pi pi-file-o"
+            (click)="dt.exportCSV()"
+            class="p-mr-2"
+            pTooltip="CSV"
+            tooltipPosition="bottom"
+          ></button>
+        </div>
+      </ng-template>
+
+      <ng-template pTemplate="header">
+        <tr>
+          <th pSortableColumn="name">
+            Nombre <p-sortIcon field="name"></p-sortIcon>
+          </th>
+          <th pSortableColumn="mileage">
+            Kilometraje <p-sortIcon field="mileage"></p-sortIcon>
+          </th>
+          <th pSortableColumn="departamentDepartamentId.name">
+            Departamento
+            <p-sortIcon field="departamentDepartamentId.name"></p-sortIcon>
+          </th>
+          <th pSortableColumn="status">
+            Status <p-sortIcon field="status"></p-sortIcon>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filter($event.target.value, 'name', 'contains')"
+              placeholder="Buscar por nombre"
+              class="p-column-filter"
+            />
+          </th>
+          <th>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filter($event.target.value, 'code', 'contains')"
+              placeholder="Buscar por kilometraje"
+              class="p-column-filter"
+            />
+          </th>
+          <th>
+            <input
+              pInputText
+              type="text"
+              (input)="
+                dt.filter(
+                  $event.target.value,
+                  'departamentDepartamentId.name',
+                  'contains'
+                )
+              "
+              placeholder="Buscar por departamento"
+              class="p-column-filter"
+            />
+          </th>
+          <th>
+            <input
+              pInputText
+              type="text"
+              (input)="dt.filter($event.target.value, 'status', 'contains')"
+              placeholder="Buscar por estado"
+              class="p-column-filter"
+            />
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-bridge>
+        <tr [pSelectableRow]="bridge">
+          <td>
+            {{ bridge.name }}
+          </td>
+          <td>
+            <span class="p-column-title">Km </span>
+            <span class="image-text">{{ bridge.mileage }}</span>
+          </td>
+          <td>
+            <span class="image-text">{{
+              bridge.municipalityMunicipalityId?.departamentDepartamentId?.name
+            }}</span>
+          </td>
+          <td>
+            <span class="status" [ngClass]="bridge.status">{{
+              bridge.status
+            }}</span>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="4">No se encontraron elementos.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+  <p-button
+    label="Continuar"
+    icon="pi pi-check"
+    iconPos="left"
+    class="button p-button-lg"
+    (click)="clickContinue()"
+  ></p-button>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<app-footer></app-footer>
+<!-- /.Footer -->
+
+<!-- <app-menubar></app-menubar> -->

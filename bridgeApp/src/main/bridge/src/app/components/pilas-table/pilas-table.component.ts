@@ -22,8 +22,6 @@ export class PilasTableComponent implements OnInit {
       this.bridgeComunicationService.getBridge().pilePileId?.rowWidthPileList ||
       [];
 
-    console.log('lista filas pila', this.rowWidthList);
-
     this.scour =
       this.bridgeComunicationService.getBridge().pilePileId?.scourScourId || {};
     this.support =

@@ -1,6 +1,18 @@
 @charset "UTF-8";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 
+.disable {
+  pointer-events: none;
+  background-color: gray;
+  cursor: not-allowed;
+  color: white;
+}
+.disable:hover {
+  background-color: gray;
+  cursor: not-allowed;
+  color: white;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   font-weight: 300;

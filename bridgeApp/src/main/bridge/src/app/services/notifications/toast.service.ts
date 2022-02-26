@@ -89,14 +89,14 @@ export class ToastService {
     });
   }
 
-  showConfirm() {
+  showConfirm(summary: string, detail: string) {
     this.messageService.clear();
     this.messageService.add({
       key: 'c',
       sticky: true,
       severity: 'warn',
-      summary: 'Are you sure?',
-      detail: 'Confirm to proceed',
+      summary: summary,
+      detail: detail,
     });
   }
 

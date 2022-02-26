@@ -1,0 +1,79 @@
+<form novalidate enctype="multipart/form-data">
+  <h5>Advanced</h5>
+  <p-fileUpload
+    name="demo[]"
+    (uploadHandler)="onUpload($event)"
+    [customUpload]="true"
+    [multiple]="true"
+    accept="image/*"
+    [maxFileSize]="2000000"
+  >
+    <ng-template pTemplate="content">
+      <ul *ngIf="uploadedFiles.length">
+        <li *ngFor="let file of uploadedFiles">
+          {{ file.name }} - {{ file.size }} bytes
+        </li>
+      </ul>
+    </ng-template>
+  </p-fileUpload>
+
+  <div class="container row">
+    <div class="col-md-12">
+      <h1>Upload Image</h1>
+    </div>
+  </div>
+
+  <div class="container row">
+    <div class="col-md-6">
+      <input
+        type="file"
+        (change)="onFileChanged($event)"
+        accept="image/png, image/jpeg, image/gif"
+      />
+    </div>
+    <div *ngIf="image" class="mt-5">
+      <h5>Vista previa:</h5>
+      <div>
+        <img
+          class="image-thumbnail"
+          style="max-width: 100px"
+          [src]="imageMin"
+        />
+      </div>
+    </div>
+    <!-- <div class="col-md-6">
+      <input type="button" (click)="onUpload()" value="upload" />
+    </div> -->
+  </div>
+  <hr />
+  <div class="container row">
+    <div class="col-md-12">
+      <div *ngIf="message">{{ message }}</div>
+    </div>
+  </div>
+
+  <div class="container row">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="image name"
+        [(ngModel)]="imageName"
+        name="name"
+      />
+    </div>
+    <div class="col-md-6">
+      <input type="button" (click)="getImage()" value="Get Image" />
+    </div>
+  </div>
+
+  <div class="container row">
+    <div class="col-md-12">
+      <div *ngIf="retrievedImage">
+        <img [src]="retrievedImage" />
+        <img [src]="imagen" />
+      </div>
+    </div>
+  </div>
+</form>

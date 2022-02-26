@@ -1,0 +1,71 @@
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h4 class="card-title">Imagenes del puente</h4>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div *ngFor="let image of imagesList" class="col-sm-2">
+                <button class="btn btn-danger delete" (click)="onDelete(image)">
+                  X
+                </button>
+                <img
+                  [src]="this.convertToImage(image)"
+                  class="img-fluid mb-2 image"
+                  alt="black sample"
+                />
+              </div>
+
+              <div class="col-sm-2">
+                <!-- <button type="button" class="btn btn-success add"></button> -->
+                <p-fileUpload
+                  mode="basic"
+                  [files]="myfiles"
+                  [customUpload]="true"
+                  [multiple]="true"
+                  [auto]="true"
+                  accept="image/*"
+                  (uploadHandler)="onUpload($event)"
+                ></p-fileUpload>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+<p-dialog
+  header="Puente"
+  [(visible)]="imageDialog"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [maximizable]="true"
+  [baseZIndex]="10000"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <div class="dialog-content">
+    <a href="https://via.placeholder.com/1200/000000.png?text=12"></a>
+  </div>
+  <ng-template pTemplate="footer">
+    <h6>Los cambios se guardaran automaticamente</h6>
+
+    <p-button
+      icon="pi pi-check"
+      (click)="imageDialog = false"
+      label="Aceptar"
+      class="p-button-text"
+    ></p-button>
+    <p-button
+      icon="pi pi-times"
+      (click)="imageDialog = false"
+      label="Cerrar"
+    ></p-button>
+  </ng-template>
+</p-dialog>

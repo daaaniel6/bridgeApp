@@ -25,6 +25,7 @@
       stateKey="statedemo-local"
       [columns]="cols"
       responsiveLayout="scroll"
+      [responsive]="true"
     >
       <ng-template pTemplate="caption">
         <div class="p-d-flex">
@@ -57,7 +58,7 @@
             Status <p-sortIcon field="status"></p-sortIcon>
           </th>
         </tr>
-        <tr>
+        <tr class="responsive">
           <th>
             <input
               pInputText

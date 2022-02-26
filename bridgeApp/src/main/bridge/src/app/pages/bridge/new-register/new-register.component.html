@@ -6,7 +6,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
-  <app-page-header pageTitle="Puente nuevo"></app-page-header>
+  <app-page-header pageTitle="Datos del puente"></app-page-header>
   <!-- /.content-header -->
   <!-- Main content -->
   <div class="content">
@@ -32,6 +32,13 @@
         <div class="card" (click)="otrosForm = !otrosForm">Otros</div>
       </div>
       <div class="form">
+        <app-gallery></app-gallery>
+        <button
+          (click)="endRegister()"
+          class="btn btn-block btn-success btn-lg"
+        >
+          Finalizar el registro
+        </button>
         <!-- Puente de izabal -->
         <h6 style="margin-top: 0px"></h6>
         <div>
@@ -347,3 +354,40 @@
 <!-- Main Footer -->
 <app-footer></app-footer>
 <!-- /.Footer -->
+
+<p-toast
+  position="bottom-center"
+  key="c"
+  (onClose)="onReject()"
+  [baseZIndex]="5000"
+>
+  <ng-template let-message pTemplate="message">
+    <div class="flex flex-column" style="flex: 1">
+      <div class="text-center">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+        <h4>{{ message.summary }}</h4>
+        <p>{{ message.detail }}</p>
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onConfirm()"
+            label="Si"
+            class="p-button-success"
+          ></button>
+        </div>
+        <div class="col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onReject()"
+            label="No"
+            class="p-button-secondary"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>
