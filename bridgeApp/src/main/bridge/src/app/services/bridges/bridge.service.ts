@@ -28,7 +28,7 @@ export class BridgeService {
     return this.httpClient.put(this.bridgeURL + '/' + bridge.bridgeId, bridge);
   }
 
-  delete(id: string) {
+  delete(id: number) {
     return this.httpClient.delete(this.bridgeURL + '/' + id);
   }
 }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { Image } from 'src/app/models/image/image';
 import { BridgeService } from 'src/app/services/bridges/bridge.service';
+import { ImageOtherService } from 'src/app/services/bridges/image-other.service';
 import { BridgeComunicationService } from 'src/app/services/comunication/bridge-comunication.service';
 import { ToastService } from 'src/app/services/notifications/toast.service';
 
@@ -22,15 +24,41 @@ export class NewRegisterComponent implements OnInit {
   cauceForm: boolean = false;
   otrosForm: boolean = false;
 
+  subStructure: boolean = false;
+
+  myfiles: any = [];
+  imagesList: Image[] = [];
+
   constructor(
     private toastService: ToastService,
     private messageService: MessageService,
     private bridgeService: BridgeService,
     private bridgeComunicationService: BridgeComunicationService,
-    private router: Router
+    private router: Router,
+    private imageService: ImageOtherService
   ) {}
 
   ngOnInit(): void {}
+
+  onUpload(event: any) {
+    for (let file of event.files) {
+      const uploadImageData = new FormData();
+      uploadImageData.append('imageFile', file, file.name);
+      this.imageService
+        .uploadDocumentInOther(
+          this.bridgeComunicationService.getBridge().otherOtherId?.otherId || 0,
+          uploadImageData
+        )
+        .subscribe(async (response) => {
+          this.toastService.showSuccess(
+            'Documento subida correctamente',
+            file.name
+          );
+          this.imagesList.push(response);
+        });
+    }
+    this.myfiles = [];
+  }
 
   endRegister() {
     this.toastService.showConfirm(

@@ -1,3 +1,5 @@
+import { ImageOther } from '../../image/image-other';
+
 export interface Other {
   otherId?: number;
   informativeSignage?: string;
@@ -11,5 +13,5 @@ export interface Other {
   maintenance?: string;
   repair?: string;
   extra?: null;
-  imageOtherList?: any[];
+  imageOtherList?: ImageOther[];
 }

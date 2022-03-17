@@ -15,13 +15,11 @@
         <div class="card" (click)="showPuenteDialog()">Puente</div>
         <div class="card" (click)="showGeneralDialog()">General</div>
         <div class="card" (click)="tramosForm = !tramosForm">Tramos</div>
-        <div class="card" (click)="entradaForm = !entradaForm">
-          Estribo entrada
+
+        <div class="card" (click)="subStructure = !subStructure">
+          Sub-Estructura
         </div>
-        <div class="card" (click)="salidaForm = !salidaForm">
-          Estribo salida
-        </div>
-        <div class="card" (click)="pilasForm = !pilasForm">Pilas</div>
+
         <div class="card" (click)="superForm = !superForm">
           Super-estructura
         </div>
@@ -33,6 +31,18 @@
       </div>
       <div class="form">
         <app-gallery></app-gallery>
+        <p-fileUpload
+          mode="basic"
+          [files]="myfiles"
+          [customUpload]="true"
+          [multiple]="true"
+          [auto]="true"
+          accept=".pdf"
+          (uploadHandler)="onUpload($event)"
+          chooseLabel="Documentos"
+        ></p-fileUpload>
+        <br />
+        <br />
         <button
           (click)="endRegister()"
           class="btn btn-block btn-success btn-lg"
@@ -133,6 +143,40 @@
       <p-button
         icon="pi pi-times"
         (click)="tramosForm = false"
+        label="Cerrar"
+      ></p-button>
+    </ng-template>
+  </p-dialog>
+
+  <p-dialog
+    header="SUB-ESTRUCTURA"
+    [(visible)]="subStructure"
+    [modal]="true"
+    [style]="{ width: '50vw' }"
+    [maximizable]="true"
+    [baseZIndex]="10000"
+    [draggable]="false"
+    [resizable]="false"
+  >
+    <div class="dialog-content">
+      <div class="card" (click)="entradaForm = !entradaForm">
+        Estribo entrada
+      </div>
+      <div class="card" (click)="salidaForm = !salidaForm">Estribo salida</div>
+      <div class="card" (click)="pilasForm = !pilasForm">Pilas</div>
+    </div>
+    <ng-template pTemplate="footer">
+      <h6>Los cambios se guardaran automaticamente</h6>
+
+      <p-button
+        icon="pi pi-check"
+        (click)="subStructure = false"
+        label="Aceptar"
+        class="p-button-text"
+      ></p-button>
+      <p-button
+        icon="pi pi-times"
+        (click)="subStructure = false"
         label="Cerrar"
       ></p-button>
     </ng-template>

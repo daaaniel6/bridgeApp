@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Bridge } from 'src/app/models/bridge/bridge';
+import { BridgeService } from 'src/app/services/bridges/bridge.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,36 +8,45 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  basicOptions: any;
-  basicData = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'My First dataset',
-        backgroundColor: '#42A5F5',
-        data: [65, 59, 80, 81, 56, 55, 40],
-      },
-      {
-        label: 'My Second dataset',
-        backgroundColor: '#FFA726',
-        data: [28, 48, 40, 19, 86, 27, 90],
-      },
-    ],
-  };
-  data = {
-    labels: ['A', 'B', 'C'],
-    datasets: [
-      {
-        data: [300, 50, 100],
-        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-        hoverBackgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-      },
-    ],
-  };
+  bridges: Bridge[] = [];
+  regularBridgesCount: number = 0;
+  commentsCount: number = 0;
+  imagesCount: number = 0;
 
-  // hasta que
+  constructor(private bridgeService: BridgeService) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.getAllBridges();
+  }
+  /**
+   *
+   *
+   * @memberof DashboardComponent
+   */
+  getAllBridges(): void {
+    this.bridgeService.getAll().subscribe((data) => {
+      this.bridges = data;
 
-  ngOnInit(): void {}
+      /**
+       * Serch for regular bridges
+       */
+      this.regularBridgesCount = this.bridges.filter(
+        (bridge) => bridge.status === 'Regular'
+      ).length;
+
+      /**
+       * Serch for comments
+       */
+      for (let bridge of this.bridges) {
+        this.commentsCount += bridge.commentList!.length;
+      }
+
+      /**
+       *
+       */
+      for (let bridge of this.bridges) {
+        this.imagesCount += bridge.imageList!.length;
+      }
+    });
+  }
 }

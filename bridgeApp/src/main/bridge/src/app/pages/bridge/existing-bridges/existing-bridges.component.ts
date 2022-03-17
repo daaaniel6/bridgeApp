@@ -153,11 +153,13 @@ export class ExistingBridgesComponent implements OnInit {
   public form: FormGroup = this.formBuilder.group({});
 
   ngOnInit(): void {
+    this.bridgeComunicationService.setBridge({});
     this.getAllBridges();
     this.selectedBridge = {};
 
     this.stretchList = [{}, {}, {}, {}];
     this.stapesList = [this.entryStape, this.outputStape];
+    this.other.imageOtherList = [];
 
     //this.getAllDepartaments();
     this.getUserByUsername(this.tokenService.getUserName());
@@ -191,7 +193,11 @@ export class ExistingBridgesComponent implements OnInit {
   }
 
   clickContinue() {
-    if (this.selectedBridge === null || this.selectedBridge === undefined) {
+    if (
+      this.selectedBridge === null ||
+      this.selectedBridge === undefined ||
+      this.selectedBridge === {}
+    ) {
       this.toastService.showError(
         'Error',
         'Tiene que seleccionar uno de los puentes'

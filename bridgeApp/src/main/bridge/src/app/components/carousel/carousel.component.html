@@ -8,17 +8,25 @@
   [responsiveOptions]="responsiveOptions"
 >
   <ng-template pTemplate="header">
-    <h2>Mis registros de puentes</h2>
+    <h2>Puentes de Guatemala</h2>
   </ng-template>
   <ng-template let-bridge pTemplate="item">
     <div class="product-item">
       <div class="product-item-content">
         <div class="p-mb-3">
-          <img class="product-image" src="{{ bridge.image }}" alt="" />
+          <img
+            class="product-image"
+            [src]="convertToImage(bridge.imageList[0])"
+            alt=""
+          />
         </div>
         <div>
           <h4 class="p-mb-1">{{ bridge.name }}</h4>
-          <h6 class="p-mt-0 p-mb-3">${{ bridge.price }}</h6>
+          <h6 class="p-mt-0 p-mb-3">
+            {{
+              bridge.municipalityMunicipalityId?.departamentDepartamentId.name
+            }}
+          </h6>
           <span class="status" [ngClass]="bridge.status">{{
             bridge.status
           }}</span>

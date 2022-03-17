@@ -15,6 +15,8 @@ import { ExistingBridgesComponent } from './pages/bridge/existing-bridges/existi
 import { ImageComponent } from './pages/image/image.component';
 import { RegisterTableComponent } from './pages/bridge/register-table/register-table.component';
 import { ForumComponent } from './pages/forum/forum.component';
+import { NewAdminComponent } from './pages/new-admin/new-admin.component';
+import { DeleteBridgeComponent } from './pages/bridge/delete-bridge/delete-bridge.component';
 
 const routes: Routes = [
   {
@@ -45,7 +47,13 @@ const routes: Routes = [
     path: 'new-bridge',
     component: NewBridgeComponent,
     canActivate: [ProdGuardService],
-    data: { expectedRol: ['admin', 'user'] },
+    data: { expectedRol: ['admin'] },
+  },
+  {
+    path: 'delete-bridge',
+    component: DeleteBridgeComponent,
+    canActivate: [ProdGuardService],
+    data: { expectedRol: ['admin'] },
   },
   {
     path: 'selectExistingBridges',
@@ -76,6 +84,12 @@ const routes: Routes = [
     component: ForumComponent,
     canActivate: [ProdGuardService],
     data: { expectedRol: ['admin', 'user'] },
+  },
+  {
+    path: 'new-admin',
+    component: NewAdminComponent,
+    canActivate: [ProdGuardService],
+    data: { expectedRol: ['admin'] },
   },
   {
     path: 'image',

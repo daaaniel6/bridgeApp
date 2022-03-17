@@ -148,6 +148,7 @@ export class NewBridgeComponent implements OnInit {
   ngOnInit(): void {
     this.stretchList = [{}, {}, {}, {}];
     this.stapesList = [this.entryStape, this.outputStape];
+    this.other.imageOtherList = [];
 
     this.getAllDepartaments();
     this.getUserByUsername(this.tokenService.getUserName());

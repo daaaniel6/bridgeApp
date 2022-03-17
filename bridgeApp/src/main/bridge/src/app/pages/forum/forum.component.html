@@ -16,14 +16,12 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12 col-sm-6">
-            <h3 class="d-inline-block d-sm-none">
-              Esto no se que es pero lo dejare aca
-            </h3>
+            <h3 class="d-inline-block d-sm-none">Imagenes</h3>
             <div class="col-12">
               <img
                 [src]="imageSelectSafeUrl"
                 class="product-image"
-                alt="Product Image"
+                alt="No hay imagen del puente"
               />
             </div>
             <div class="col-12 product-image-thumbs">
@@ -34,7 +32,7 @@
                 <img
                   [src]="this.convertToImage(image)"
                   (click)="clickImage(image)"
-                  alt="Product Image"
+                  alt="No hay imagen del puente"
                 />
               </div>
             </div>
@@ -205,24 +203,7 @@
               role="tabpanel"
               aria-labelledby="product-desc-tab"
             >
-              Guatemala, al igual que las carreteras, también cuenta con una
-              serie de puentes que ayudan en la comunicación terrestre, y al
-              transporte de personas y mercancías. Guatemala cuenta con una
-              serie de puentes, entre lo cuales podemos encontrar: Puente El
-              Incienso Este importante puente es parte del periférico en la
-              ciudad de Guatemala, construido a inicios de la década de los años
-              70, el cual fue llamado de esta forma por la cantidad de nubes o
-              neblina que se acumula por la mañana en la parte baja. El Puente
-              El Incienso esta ubicado como parte integral del Anillo Periférico
-              (Norte -Sur) que comunica a las zonas 1, 2 y 3 con la zona 7 de la
-              Ciudad Capital. Puente Belice Cuya construcción fue finalizada en
-              el año de 1959, la cual fue realizada, en el término de nueve
-              años, durante el gobierno de Jacobo Arbenz, con dos grandes
-              fundiciones de concreto, que sostienen las estructuras de hierro
-              en forma de arcos, que se encuentran unidas por más de 45 mil
-              remaches y que atraviesan el puente, los cuales fueron diseñados
-              en Alemania y construido de acero en los Estados Unidos de
-              América.
+              <app-view-register></app-view-register>
             </div>
             <div
               class="tab-pane fade"
@@ -306,7 +287,14 @@
               role="tabpanel"
               aria-labelledby="product-rating-tab"
             >
-              info
+              <div *ngFor="let document of documentList" class="pdf row mt-12">
+                <iframe
+                  [src]="document"
+                  class="pdf row mt-12"
+                  width="800"
+                  height="400"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>

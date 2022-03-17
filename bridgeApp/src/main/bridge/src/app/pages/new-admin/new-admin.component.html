@@ -1,0 +1,118 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<!-- /.navbar -->
+<!-- Main Sidebar Container -->
+<app-sidebar></app-sidebar>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <app-page-header pageTitle="Crear administrador"></app-page-header>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements disabled -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Datos del usuario</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <form [formGroup]="form" novalidate (ngSubmit)="onRegister()">
+                <!-- input states -->
+
+                <div class="form-group">
+                  <label class="col-form-label is-required" for="inputSuccess"
+                    ><i class="fas fa-check"></i> Nombre completo</label
+                  >
+                  <input
+                    formControlName="name"
+                    type="text"
+                    class="form-control"
+                    [class.is-invalid]="form.get('name')?.invalid"
+                    [class.is-valid]="form.get('name')?.valid"
+                    id="inputName"
+                    placeholder="Ingrese la informacion"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label is-required" for="inputSuccess"
+                    ><i class="fas fa-check"></i> Nombre de usuario</label
+                  >
+                  <input
+                    formControlName="username"
+                    type="text"
+                    class="form-control"
+                    [class.is-invalid]="form.get('username')?.invalid"
+                    [class.is-valid]="form.get('username')?.valid"
+                    id="inputUsername"
+                    placeholder="Ingrese la informacion"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label is-required" for="inputSuccess"
+                    ><i class="fas fa-check"></i> Correo electronico</label
+                  >
+                  <input
+                    formControlName="email"
+                    type="email"
+                    class="form-control"
+                    [class.is-invalid]="form.get('email')?.invalid"
+                    [class.is-valid]="form.get('email')?.valid"
+                    id="inputEmail"
+                    placeholder="Ingrese la informacion"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label class="col-form-label is-required" for="inputSuccess"
+                    ><i class="fas fa-check"></i> Contraseña</label
+                  >
+                  <input
+                    formControlName="password"
+                    type="password"
+                    class="form-control"
+                    [class.is-invalid]="form.get('password')?.invalid"
+                    [class.is-valid]="form.get('password')?.valid"
+                    id="inputPassword"
+                    placeholder="Ingrese la informacion"
+                    required
+                  />
+                </div>
+
+                <!-- End rows -->
+
+                <button
+                  type="submit"
+                  class="btn btn-block btn-outline-success btn-lg"
+                  [disabled]="!form.valid"
+                >
+                  Guardar
+                </button>
+              </form>
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+        </div>
+        <!--/.col (left) -->
+
+        <!-- right column ---------------------------------- -->
+        <div class="col-md-6"></div>
+        <!--/.col (right) -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<!-- Main Footer -->
+<app-footer></app-footer>
+<!-- /.Footer -->

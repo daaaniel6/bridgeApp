@@ -87,7 +87,7 @@
           <!-- Bar chart -->
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Puentes por region</h3>
+              <h3 class="card-title">Registro de Puentes por Departamento</h3>
 
               <div class="card-tools">
                 <button
@@ -120,7 +120,9 @@
               <!-- DIRECT CHAT -->
               <div class="card direct-chat direct-chat-warning">
                 <div class="card-header">
-                  <h3 class="card-title">Grafica de pie</h3>
+                  <h3 class="card-title">
+                    Estado de los puentes segun los registros
+                  </h3>
 
                   <div class="card-tools">
                     <span title="3 New Messages" class="badge badge-warning"
@@ -305,108 +307,7 @@
             </div>
             <!-- /.col -->
 
-            <div class="col-md-6">
-              <!-- USERS LIST -->
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title">Latest Members</h3>
-
-                  <div class="card-tools">
-                    <span class="badge badge-danger">8 New Members</span>
-                    <button
-                      type="button"
-                      class="btn btn-tool"
-                      data-card-widget="collapse"
-                    >
-                      <i class="fas fa-minus"></i>
-                    </button>
-                    <button
-                      type="button"
-                      class="btn btn-tool"
-                      data-card-widget="remove"
-                    >
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body p-0">
-                  <ul class="users-list clearfix">
-                    <li>
-                      <img
-                        src="../assets/images/lte/user1-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Alexander Pierce</a>
-                      <span class="users-list-date">Today</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user8-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Norman</a>
-                      <span class="users-list-date">Yesterday</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user7-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Jane</a>
-                      <span class="users-list-date">12 Jan</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user6-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">John</a>
-                      <span class="users-list-date">12 Jan</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user2-160x160.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Alexander</a>
-                      <span class="users-list-date">13 Jan</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user5-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Sarah</a>
-                      <span class="users-list-date">14 Jan</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user4-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Nora</a>
-                      <span class="users-list-date">15 Jan</span>
-                    </li>
-                    <li>
-                      <img
-                        src="../assets/images/lte/user3-128x128.jpg"
-                        alt="User Image"
-                      />
-                      <a class="users-list-name" href="#">Nadia</a>
-                      <span class="users-list-date">15 Jan</span>
-                    </li>
-                  </ul>
-                  <!-- /.users-list -->
-                </div>
-                <!-- /.card-body -->
-                <div class="card-footer text-center">
-                  <a href="javascript:">View All Users</a>
-                </div>
-                <!-- /.card-footer -->
-              </div>
-              <!--/.card -->
-            </div>
+            <div class="col-md-6"></div>
             <!-- /.col -->
           </div>
           <!-- /. Donut Chart row -->
@@ -420,8 +321,8 @@
             <span class="info-box-icon"><i class="fas fa-tag"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Mis puentes</span>
-              <span class="info-box-number">5,200</span>
+              <span class="info-box-text">Puentes regulares</span>
+              <span class="info-box-number">{{ regularBridgesCount }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -430,8 +331,8 @@
             <span class="info-box-icon"><i class="far fa-heart"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-text">Puentes</span>
+              <span class="info-box-number">{{ bridges.length }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -442,8 +343,8 @@
             ></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Downloads</span>
-              <span class="info-box-number">114,381</span>
+              <span class="info-box-text">Imagenes</span>
+              <span class="info-box-number">{{ imagesCount }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -453,7 +354,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Comentarios en foro</span>
-              <span class="info-box-number">163,921</span>
+              <span class="info-box-number">{{ commentsCount }}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -461,7 +362,7 @@
 
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Browser Usage</h3>
+              <h3 class="card-title">Navegadores a usar</h3>
 
               <div class="card-tools">
                 <button
@@ -511,7 +412,7 @@
               <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    United States of America
+                    Opera
                     <span class="float-right text-danger">
                       <i class="fas fa-arrow-down text-sm"></i>
                       12%</span
@@ -520,7 +421,7 @@
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    India
+                    Chrome
                     <span class="float-right text-success">
                       <i class="fas fa-arrow-up text-sm"></i> 4%
                     </span>
@@ -528,7 +429,7 @@
                 </li>
                 <li class="nav-item">
                   <a href="#" class="nav-link">
-                    China
+                    Firefox
                     <span class="float-right text-warning">
                       <i class="fas fa-arrow-left text-sm"></i> 0%
                     </span>
@@ -537,123 +438,6 @@
               </ul>
             </div>
             <!-- /.footer -->
-          </div>
-          <!-- /.card -->
-
-          <!-- PRODUCT LIST -->
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Recently Added Products</h3>
-
-              <div class="card-tools">
-                <button
-                  type="button"
-                  class="btn btn-tool"
-                  data-card-widget="collapse"
-                >
-                  <i class="fas fa-minus"></i>
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-tool"
-                  data-card-widget="remove"
-                >
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-            <!-- /.card-header -->
-            <div class="card-body p-0">
-              <ul class="products-list product-list-in-card pl-2 pr-2">
-                <li class="item">
-                  <div class="product-img">
-                    <img
-                      src="../assets/images/lte/default-150x150.png"
-                      alt="Product Image"
-                      class="img-size-50"
-                    />
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title"
-                      >Samsung TV
-                      <span class="badge badge-warning float-right"
-                        >$1800</span
-                      ></a
-                    >
-                    <span class="product-description">
-                      Samsung 32" 1080p 60Hz LED Smart HDTV.
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img
-                      src="../assets/images/lte/default-150x150.png"
-                      alt="Product Image"
-                      class="img-size-50"
-                    />
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title"
-                      >Bicycle
-                      <span class="badge badge-info float-right">$700</span></a
-                    >
-                    <span class="product-description">
-                      26" Mongoose Dolomite Men's 7-speed, Navy Blue.
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img
-                      src="../assets/images/lte/default-150x150.png"
-                      alt="Product Image"
-                      class="img-size-50"
-                    />
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title">
-                      Xbox One
-                      <span class="badge badge-danger float-right"> $350 </span>
-                    </a>
-                    <span class="product-description">
-                      Xbox One Console Bundle with Halo Master Chief Collection.
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-                <li class="item">
-                  <div class="product-img">
-                    <img
-                      src="../assets/images/lte/default-150x150.png"
-                      alt="Product Image"
-                      class="img-size-50"
-                    />
-                  </div>
-                  <div class="product-info">
-                    <a href="javascript:void(0)" class="product-title"
-                      >PlayStation 4
-                      <span class="badge badge-success float-right"
-                        >$399</span
-                      ></a
-                    >
-                    <span class="product-description">
-                      PlayStation 4 500GB Console (PS4)
-                    </span>
-                  </div>
-                </li>
-                <!-- /.item -->
-              </ul>
-            </div>
-            <!-- /.card-body -->
-            <div class="card-footer text-center">
-              <a href="javascript:void(0)" class="uppercase"
-                >View All Products</a
-              >
-            </div>
-            <!-- /.card-footer -->
           </div>
           <!-- /.card -->
         </div>

@@ -1,4 +1,5 @@
 import { Municipality } from '../departaments/municipality';
+import { Image } from '../image/image';
 import { User } from '../user/user';
 import { Channel } from './channel/channel';
 import { Comment } from './comment/comment';
@@ -31,7 +32,7 @@ export interface Bridge {
   type?: null;
   extra?: null;
   stretchList?: Stretch[];
-  imageList?: any[];
+  imageList?: Image[];
   blueprintList?: any[];
   stapesList?: any[];
   commentList?: Comment[];

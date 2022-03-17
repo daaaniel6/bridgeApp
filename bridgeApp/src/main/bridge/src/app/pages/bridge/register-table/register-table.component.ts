@@ -49,8 +49,14 @@ export class RegisterTableComponent implements OnInit {
   }
 
   getAllBridges(): void {
+    //FIXME:  registro dinamico o estudio dinamico  - arreglar botones de subestrutura- cambiar la palabra puente
     this.bridgeService.getAll().subscribe((data) => {
-      this.bridges = data;
+      let allBridges = data;
+      for (let bridge of allBridges) {
+        if (bridge.evaluationEndDate !== null) {
+          this.bridges.push(bridge);
+        }
+      }
     });
   }
 }

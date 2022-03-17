@@ -1,0 +1,1085 @@
+<!-- /.row -->
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Datos del Registro</h3>
+
+        <div class="card-tools">
+          <div class="input-group input-group-sm" style="width: 150px">
+            <input
+              type="text"
+              name="table_search"
+              class="form-control float-right"
+              placeholder="Search"
+            />
+
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-default">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <tbody>
+            <!-- <tr>
+                <td colspan="2">
+                  <div>Estado del puente</div>
+
+                  <label controlName="status">{{ form.value.status }}</label>
+                </td>
+              </tr> -->
+            <tr>
+              <td>
+                <div>Nombre del puente</div>
+                <label>{{ bridge.name }}</label>
+              </td>
+              <td>
+                <div class="label">Codigo</div>
+                <label for="">{{ bridge.code }}</label>
+              </td>
+              <td>
+                <div class="label">Ruta</div>
+                <label for="">{{ bridge.route }}</label>
+              </td>
+              <td>
+                <div class="label">Kilometraje</div>
+                <label for="">{{ bridge.mileage }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="label">Departamento</div>
+                <label for="">{{
+                  bridge.municipalityMunicipalityId?.departamentDepartamentId
+                    ?.name
+                }}</label>
+              </td>
+              <td colspan="2">
+                <div class="label">Municipio</div>
+                <label for="">{{
+                  bridge.municipalityMunicipalityId?.name
+                }}</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <div class="label">Ruta pavimentada</div>
+                <label for="">{{ bridge.pavedRoute }}</label>
+              </td>
+              <td>
+                <div class="label">Alineamiento Horizontal</div>
+                <label for="">{{ bridge.horizontalAlignment }}</label>
+              </td>
+              <td>
+                <div class="label">Esviaje / Sesgo</div>
+                <label for="">{{ bridge.skew }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">Coordenadas UTM Norte</div>
+                <label for="">{{ bridge.northUtmCoordinates }}</label>
+              </td>
+              <td>
+                <div class="label">Coordenadas UTM Este</div>
+                <label for="">{{ bridge.eastUtmCoordinates }}</label>
+              </td>
+              <td>
+                <div class="label">Poblacion ANTES del puente</div>
+                <label for="">{{ bridge.populationBefore }}</label>
+              </td>
+              <td>
+                <div class="label">Poblacion DESPUES del puente</div>
+                <label for="">{{ bridge.populationAfter }}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Datos generales</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <tbody>
+            <tr>
+              <td colspan="2">
+                <div class="label">Longitud (m)</div>
+                <label for="">{{ general.length }}</label>
+              </td>
+              <td colspan="2">
+                <div class="label">Numero de tramos</div>
+                <label for="">{{ general.numberSections }}</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <div class="label">Ancho rodadura (m)</div>
+                <label for="">{{ general.treadWidth }}</label>
+              </td>
+              <td>
+                <div class="label">Ancho acera (m) der.</div>
+                <label for="">{{ general.curbWidthRight }}</label>
+              </td>
+              <td>
+                <div class="label">Ancho acera (m) izq.</div>
+                <label for="">{{ general.curbWidthLeft }}</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <div class="label">Tipologia del puente</div>
+                <label for="">{{ general.bridgeTypology }}</label>
+              </td>
+              <td>
+                <div class="label">Altura libre superior (m)</div>
+                <label for="">{{ general.topHeadroom }}</label>
+              </td>
+              <td colspan="2">
+                <div class="label">Altura libre sobre el rio (m)</div>
+                <label for="">{{ general.freeHeightAboveRiver }}</label>
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2">
+                <div class="label">Puente sobre</div>
+                <label for="">{{ general.bridgeOver }}</label>
+              </td>
+              <td>
+                <div class="label">Numero de vias en cada sentido</div>
+                <label for="">{{ general.numberRoads }}</label>
+              </td>
+              <td colspan="2">
+                <div class="label">Material superestructura</div>
+                <label for="">{{ general.substructureMaterial }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="label">Carga de diseño</div>
+                <label for="">{{ general.designLoad }}</label>
+              </td>
+              <td>
+                <div class="label">Año de construccion</div>
+                <label for="">{{ general.yearOfConstruction }}</label>
+              </td>
+              <td colspan="2">
+                <div class="label">Material subestructura</div>
+                <label for="">{{ general.substructureMaterial }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="label">Trafico (veh/dia)</div>
+                <label for="">{{ general.traffic }}</label>
+              </td>
+              <td colspan="3">
+                <div class="label">% Camiones y buses</div>
+                <label for="">{{ general.percentageTrucksBuses }}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Tramos</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Tramo</th>
+              <th>Longitud del tramo (m)</th>
+              <th>Tipo de seccion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stretch of stretchList; let i = index">
+              <td>{{ i + 1 }}</td>
+              <td>{{ stretch.length }}</td>
+              <td>{{ stretch.typeSection }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Estribo Entrada</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Material</th>
+              <th>Grietas en una direccion</th>
+              <th>Grietas en dos direcciontes</th>
+              <th>Otros</th>
+              <th>Altura m</th>
+              <th>Ancho m</th>
+              <th>Perdida de petreos por golpe</th>
+              <th>Exposicion de acero</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rowWidth of entryStape.rowWidthList">
+              <td>{{ rowWidth.nameRow }}</td>
+              <td>{{ rowWidth.material }}</td>
+              <td>{{ rowWidth.cracksInOneDirection }}</td>
+              <td>{{ rowWidth.cracksInTwoDirections }}</td>
+              <td>{{ rowWidth.others }}</td>
+              <td>{{ rowWidth.height }}</td>
+              <td>{{ rowWidth.width }}</td>
+              <td>{{ rowWidth.stoneLossPerBlow }}</td>
+              <td>{{ rowWidth.steelExhibition }}</td>
+            </tr>
+            <tr>
+              <td>Socavacion</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">No hay</div>
+                <label for=""> {{ entryStape.scourScourId?.thereIsNot }}</label>
+              </td>
+              <td>
+                <div class="label">Si, pero no hay</div>
+                <label for="">
+                  {{ entryStape.scourScourId?.yesButThereIsNot }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Si, hay exposicion</div>
+                <label for="">
+                  {{ entryStape.scourScourId?.yesThereIsExposure }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Asentamiento de</div>
+                <label for="">
+                  {{ entryStape.scourScourId?.settlementOf }}</label
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Apoyos</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">Material</div>
+                <label for="">
+                  {{ entryStape.supportSupportId?.material }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Neopreno aplastado</div>
+                <label for="">
+                  {{ entryStape.supportSupportId?.crushedNeoprene }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Fuera de lugar</div>
+                <label for="">
+                  {{ entryStape.supportSupportId?.outOfPlace }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Oxidado</div>
+                <label for=""> {{ entryStape.supportSupportId?.rusty }}</label>
+              </td>
+              <td>
+                <div class="label">Falta perno</div>
+                <label for="">
+                  {{ entryStape.supportSupportId?.boltMissing }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Perno roto</div>
+                <label for="">
+                  {{ entryStape.supportSupportId?.brokenBolt }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for=""> {{ entryStape.supportSupportId?.others }}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Estribo Salida</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Material</th>
+              <th>Grietas en una direccion</th>
+              <th>Grietas en dos direcciontes</th>
+              <th>Otros</th>
+              <th>Altura m</th>
+              <th>Ancho m</th>
+              <th>Perdida de petreos por golpe</th>
+              <th>Exposicion de acero</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rowWidth of outputStape.rowWidthList">
+              <td>{{ rowWidth.nameRow }}</td>
+              <td>{{ rowWidth.material }}</td>
+              <td>{{ rowWidth.cracksInOneDirection }}</td>
+              <td>{{ rowWidth.cracksInTwoDirections }}</td>
+              <td>{{ rowWidth.others }}</td>
+              <td>{{ rowWidth.height }}</td>
+              <td>{{ rowWidth.width }}</td>
+              <td>{{ rowWidth.stoneLossPerBlow }}</td>
+              <td>{{ rowWidth.steelExhibition }}</td>
+            </tr>
+            <tr>
+              <td>Socavacion</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">No hay</div>
+                <label for="">
+                  {{ outputStape.scourScourId?.thereIsNot }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Si, pero no hay</div>
+                <label for="">
+                  {{ outputStape.scourScourId?.yesButThereIsNot }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Si, hay exposicion</div>
+                <label for="">
+                  {{ outputStape.scourScourId?.yesThereIsExposure }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Asentamiento de</div>
+                <label for="">
+                  {{ outputStape.scourScourId?.settlementOf }}</label
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>Apoyos</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">Material</div>
+                <label for="">
+                  {{ outputStape.supportSupportId?.material }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Neopreno aplastado</div>
+                <label for="">
+                  {{ outputStape.supportSupportId?.crushedNeoprene }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Fuera de lugar</div>
+                <label for="">
+                  {{ outputStape.supportSupportId?.outOfPlace }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Oxidado</div>
+                <label for=""> {{ outputStape.supportSupportId?.rusty }}</label>
+              </td>
+              <td>
+                <div class="label">Falta perno</div>
+                <label for="">
+                  {{ outputStape.supportSupportId?.boltMissing }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Perno roto</div>
+                <label for="">
+                  {{ outputStape.supportSupportId?.brokenBolt }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for="">
+                  {{ outputStape.supportSupportId?.others }}</label
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Pilas</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Material</th>
+              <th>Grietas en una direccion</th>
+              <th>Grietas en dos direcciontes</th>
+              <th>Otros</th>
+              <th>Altura m</th>
+              <th>Ancho m</th>
+              <th>Perdida de petreos por golpe</th>
+              <th>Exposicion de acero</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let rowWidth of pile.rowWidthPileList">
+              <td>{{ rowWidth.nameRow }}</td>
+              <td>{{ rowWidth.material }}</td>
+              <td>{{ rowWidth.cracksInOneDirection }}</td>
+              <td>{{ rowWidth.cracksInTwoDirections }}</td>
+              <td>{{ rowWidth.others }}</td>
+              <td>{{ rowWidth.height }}</td>
+              <td>{{ rowWidth.width }}</td>
+              <td>{{ rowWidth.stoneLossPerBlow }}</td>
+              <td>{{ rowWidth.steelExhibition }}</td>
+            </tr>
+            <tr>
+              <td>Socavacion</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">No hay</div>
+                <label for=""> {{ pile.scourScourId?.thereIsNot }}</label>
+              </td>
+              <td>
+                <div class="label">Si, pero no hay</div>
+                <label for=""> {{ pile.scourScourId?.yesButThereIsNot }}</label>
+              </td>
+              <td>
+                <div class="label">Si, hay exposicion</div>
+                <label for="">
+                  {{ pile.scourScourId?.yesThereIsExposure }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Asentamiento de</div>
+                <label for=""> {{ pile.scourScourId?.settlementOf }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td>Apoyos</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">Material</div>
+                <label for=""> {{ pile.supportSupportId?.material }}</label>
+              </td>
+              <td>
+                <div class="label">Neopreno aplastado</div>
+                <label for="">
+                  {{ pile.supportSupportId?.crushedNeoprene }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Fuera de lugar</div>
+                <label for=""> {{ pile.supportSupportId?.outOfPlace }}</label>
+              </td>
+              <td>
+                <div class="label">Oxidado</div>
+                <label for=""> {{ pile.supportSupportId?.rusty }}</label>
+              </td>
+              <td>
+                <div class="label">Falta perno</div>
+                <label for=""> {{ pile.supportSupportId?.boltMissing }}</label>
+              </td>
+              <td>
+                <div class="label">Perno roto</div>
+                <label for=""> {{ pile.supportSupportId?.brokenBolt }}</label>
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for=""> {{ pile.supportSupportId?.others }}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Super-estructura</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Grietas en diagonal</th>
+              <th>Grietas verticales</th>
+              <th>Perdida de petreos por golpe</th>
+              <th>Exposicion de acero</th>
+              <th>Otros</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of superstructure.concreteRowList">
+              <td>{{ row.nameConcrete }}</td>
+              <td>{{ row.diagonalCracks }}</td>
+              <td>{{ row.verticalCracks }}</td>
+              <td>{{ row.stoneLossPerBlow }}</td>
+              <td>{{ row.steelExhibition }}</td>
+              <td>{{ row.others }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Oxido</th>
+              <th>Faltan pernos</th>
+              <th>Elemento golpeado</th>
+              <th>Elemento cortado</th>
+              <th>Pintura</th>
+              <th>Otros</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of superstructure.steelRowList">
+              <td>{{ row.nameSteel }}</td>
+              <td>{{ row.oxide }}</td>
+              <td>{{ row.missingBolts }}</td>
+              <td>{{ row.hitElement }}</td>
+              <td>{{ row.cutElement }}</td>
+              <td>{{ row.painting }}</td>
+              <td>{{ row.others }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th colspan="2">Losa de rodamiento</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="label">Material</div>
+                <label for="">
+                  {{ superstructure.bearingSlabBearingSlabId?.material }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Grietas en una direccion</div>
+                <label for="">
+                  {{
+                    superstructure.bearingSlabBearingSlabId
+                      ?.cracksInOneDirection
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Grietas en dos</div>
+                <label for="">
+                  {{
+                    superstructure.bearingSlabBearingSlabId
+                      ?.cracksInTwoDirections
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Desprendimiento de</div>
+                <label for="">
+                  {{
+                    superstructure.bearingSlabBearingSlabId?.detachmentOf
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Baches</div>
+                <label for="">
+                  {{ superstructure.bearingSlabBearingSlabId?.potholes }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Exposicion de acero</div>
+                <label for="">
+                  {{
+                    superstructure.bearingSlabBearingSlabId?.steelExhibition
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for="">
+                  {{ superstructure.bearingSlabBearingSlabId?.others }}</label
+                >
+              </td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th colspan="2">Drenaje super-estructura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="label">Limpios</div>
+                <label for="">
+                  {{ superstructure.sewerSystemSewerSystemId?.clean }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Obstruidos</div>
+                <label for="">
+                  {{ superstructure.sewerSystemSewerSystemId?.blocked }}</label
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Elementos no estructurales</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>Pasamanos Barandal</td>
+              <td>
+                <div class="label">Material</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.handrailRailingHandrailRailingId
+                      ?.material
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Ausencia de seccion</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.handrailRailingHandrailRailingId
+                      ?.absenceOfSection
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Deformacion de elemento</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.handrailRailingHandrailRailingId
+                      ?.elementDeformation
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Golpeado (longitud)</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.handrailRailingHandrailRailingId
+                      ?.beaten
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Pintura</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.handrailRailingHandrailRailingId
+                      ?.painting
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.handrailRailingHandrailRailingId
+                      ?.others
+                  }}</label
+                >
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <td>Postes Barandal</td>
+              <td>
+                <div class="label">Material</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.railingPostsRailingPostsId?.material
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Ausencia de seccion</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.railingPostsRailingPostsId
+                      ?.absenceOfSection
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Deformacion de elemento</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.railingPostsRailingPostsId
+                      ?.elementDeformation
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Golpeado (cuantos)</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.railingPostsRailingPostsId?.beaten
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Pintura</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.railingPostsRailingPostsId?.painting
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.railingPostsRailingPostsId?.others
+                  }}</label
+                >
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody>
+            <tr>
+              <td>Barreras</td>
+              <td>
+                <div class="label">Material</div>
+                <label for="">
+                  {{ nonStructuralElements.barrierBarrierId?.material }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Grietas en una direccion</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.barrierBarrierId?.cracksInOneDirection
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Grietas en dos direcciones</div>
+                <label for="">
+                  {{
+                    nonStructuralElements.barrierBarrierId
+                      ?.cracksInTwoDirections
+                  }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Golpeado (cuantos)</div>
+                <label for="">
+                  {{ nonStructuralElements.barrierBarrierId?.beaten }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Pintura</div>
+                <label for="">
+                  {{ nonStructuralElements.barrierBarrierId?.painting }}</label
+                >
+              </td>
+              <td>
+                <div class="label">Otros</div>
+                <label for="">
+                  {{ nonStructuralElements.barrierBarrierId?.others }}</label
+                >
+              </td>
+            </tr>
+          </tbody>
+
+          <thead>
+            <tr>
+              <th></th>
+              <th>Material</th>
+              <th>Falta elemento</th>
+              <th>Junta limpia</th>
+              <th>Daños</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of nonStructuralElements.councilList">
+              <td>{{ row.nameCouncil }}</td>
+              <td>{{ row.material }}</td>
+              <td>{{ row.missingItem }}</td>
+              <td>{{ row.cleanGasket }}</td>
+              <td>{{ row.damage }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Material</th>
+              <th>Buen estado</th>
+              <th>Daños</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of nonStructuralElements.slabAccessList">
+              <td>{{ row.nameSalabAccess }}</td>
+              <td>{{ row.material }}</td>
+              <td>{{ row.goodCondition }}</td>
+              <td>{{ row.damage }}</td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Material</th>
+              <th>Tipo</th>
+              <th>Largo</th>
+              <th>Ancho</th>
+              <th>Altura</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of nonStructuralElements.protectionWorksList">
+              <td>{{ row.nameProtectionWorks }}</td>
+              <td>{{ row.material }}</td>
+              <td>{{ row.type }}</td>
+              <td>{{ row.long1 }}</td>
+              <td>{{ row.width }}</td>
+              <td>{{ row.height }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Caracteristicas del cauce</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="label">Nombre del rio</div>
+                <label for=""> {{ channel.riverName }}</label>
+              </td>
+              <td>
+                <div class="label">
+                  Tipo de cuerpo de agua existente adyacente al puente
+                </div>
+                <label for=""> {{ channel.bodyType }}</label>
+              </td>
+              <td>
+                <div class="label">Estado del cauce</div>
+                <label for=""> {{ channel.channelStatus }}</label>
+              </td>
+              <td>
+                <div class="label">Estado zona adyacente a estribos</div>
+                <label for="">
+                  {{ channel.stateZoneAdjacentToAbutments }}</label
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">Encauzamiento</div>
+                <label for=""> {{ channel.channeling }}</label>
+              </td>
+              <td>
+                <div class="label">A presentado desbordamiento</div>
+                <label for=""> {{ channel.overflow }}</label>
+              </td>
+              <td>
+                <div class="label">Frecuencia (años)</div>
+                <label for=""> {{ channel.frequency }}</label>
+              </td>
+              <td>
+                <div class="label">Fecha ultimo desbordamiento</div>
+                <label for=""> {{ channel.lastOverflowDate }}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Otros</h3>
+      </div>
+      <!-- /.card-header -->
+      <div class="table-responsive table-r">
+        <table class="table table-bordered table-hover">
+          <thead></thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="label">Señalización informativa</div>
+                <label for=""> {{ other.informativeSignage }}</label>
+              </td>
+              <td>
+                <div class="label">Señalización preventiva</div>
+                <label for=""> {{ other.preventiveSignage }}</label>
+              </td>
+              <td>
+                <div class="label">Señalización reglamentaria</div>
+                <label for=""> {{ other.regulatorySignage }}</label>
+              </td>
+              <td>
+                <div class="label">Señalización horizontal</div>
+                <label for=""> {{ other.horizontalSignage }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="label">Alumbrado artificial (existe)</div>
+                <label for=""> {{ other.artificialLighting }}</label>
+              </td>
+              <td>
+                <div class="label">Drenajes aledaños al puente</div>
+                <label for=""> {{ other.sewerSystem }}</label>
+              </td>
+              <td colspan="2">
+                <div class="label">Estado de derenajes aledaños</div>
+                <label for=""> {{ other.drainageStatus }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <div class="label">Mantenimiento</div>
+                <label for=""> {{ other.maintenance }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <div class="label">Observaciones</div>
+                <label for=""> {{ other.observation }}</label>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="4">
+                <div class="label">Reparacion</div>
+                <label for=""> {{ other.repair }}</label>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->

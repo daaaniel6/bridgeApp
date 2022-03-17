@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Bridge } from 'src/app/models/bridge/bridge';
+import { Image } from 'src/app/models/image/image';
+import { BridgeService } from 'src/app/services/bridges/bridge.service';
 
 @Component({
   selector: 'app-carousel',
@@ -26,7 +29,28 @@ export class CarouselComponent implements OnInit {
     },
   ];
 
-  constructor() {}
+  constructor(
+    private bridgeService: BridgeService,
+    private sanitizer: DomSanitizer
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllBridges();
+  }
+
+  getAllBridges(): void {
+    this.bridgeService.getAll().subscribe((data) => {
+      this.bridges = data;
+    });
+  }
+
+  convertToImage(img: Image): SafeUrl {
+    let safeUrl = '';
+    if (img !== undefined) {
+      let objectURL = 'data:image/png;base64,' + img.image;
+      let safeUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+      return safeUrl;
+    }
+    return safeUrl;
+  }
 }

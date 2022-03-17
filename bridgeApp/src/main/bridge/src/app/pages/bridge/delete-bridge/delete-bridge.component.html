@@ -61,7 +61,7 @@
             Status <p-sortIcon field="status"></p-sortIcon>
           </th>
           <th pSortableColumn="status">
-            Ver <p-sortIcon field="status"></p-sortIcon>
+            Eliminar <p-sortIcon field="status"></p-sortIcon>
           </th>
         </tr>
         <tr>
@@ -157,8 +157,12 @@
             }}</span>
           </td>
           <td>
-            <button type="button" (click)="onClick(bridge)">
-              <img src="../../../../assets/images/icons/foro.gif" class="eye" />
+            <button
+              type="button"
+              (click)="onClick(bridge)"
+              class="btn btn-danger"
+            >
+              <i class="nav-icon fas fa-trash"></i>
             </button>
           </td>
         </tr>
@@ -178,3 +182,40 @@
 <!-- Main Footer -->
 <app-footer></app-footer>
 <!-- /.Footer -->
+
+<p-toast
+  position="bottom-center"
+  key="c"
+  (onClose)="onReject()"
+  [baseZIndex]="5000"
+>
+  <ng-template let-message pTemplate="message">
+    <div class="flex flex-column" style="flex: 1">
+      <div class="text-center">
+        <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+        <h4>{{ message.summary }}</h4>
+        <p>{{ message.detail }}</p>
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onConfirm()"
+            label="Si"
+            class="p-button-success"
+          ></button>
+        </div>
+        <div class="col-6">
+          <button
+            type="button"
+            pButton
+            (click)="onReject()"
+            label="No"
+            class="p-button-secondary"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-toast>

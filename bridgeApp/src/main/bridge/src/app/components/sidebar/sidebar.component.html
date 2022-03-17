@@ -73,7 +73,7 @@
           </ul>
         </li>
         <li class="nav-header">PUENTES</li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAdmin">
           <a routerLink="/new-bridge" class="nav-link">
             <i class="nav-icon far fa-plus-square"></i>
             <p>
@@ -82,6 +82,17 @@
             </p>
           </a>
         </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a routerLink="/delete-bridge" class="nav-link">
+            <i class="nav-icon fas fa-trash"></i>
+            <p>
+              Eliminar puente
+              <span class="right badge badge-danger">New</span>
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-header">AREA DE TRABAJO</li>
         <li class="nav-item">
           <a routerLink="/selectExistingBridges" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>
@@ -90,22 +101,15 @@
         </li>
         <li class="nav-item">
           <a routerLink="/selectBridge" class="nav-link">
-            <i class="nav-icon fas fa-copy"></i>
-            <p>
-              Puentes en proceso
-              <span class="badge badge-info right">6</span>
-            </p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/new-bridge" class="nav-link">
             <i class="nav-icon fas fa-edit"></i>
             <p>
-              Actualizar puente
-              <span class="right badge badge-danger">New</span>
+              Puentes en proceso
+              <span class="badge badge-info right">{{ bridges.length }}</span>
             </p>
           </a>
         </li>
+
+        <li class="nav-header">FORO</li>
         <li class="nav-item">
           <a routerLink="/all-registrations" class="nav-link">
             <i class="nav-icon fas fa-table"></i>
@@ -117,7 +121,7 @@
         </li>
 
         <li class="nav-header">CATEGORIAS</li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isAdmin">
           <a href="#" class="nav-link">
             <i class="nav-icon far fa-image"></i>
             <p>
@@ -127,21 +131,21 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/mailbox/mailbox.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Crear</p>
+              <a routerLink="/new-bridge" class="nav-link">
+                <i class="nav-icon far fa-plus-square"></i>
+                <p>
+                  Nuevo puente
+                  <span class="right badge badge-danger">New</span>
+                </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/mailbox/compose.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Proceso</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/mailbox/read-mail.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Actualizar</p>
+              <a routerLink="/delete-bridge" class="nav-link">
+                <i class="nav-icon fas fa-trash"></i>
+                <p>
+                  Eliminar puente
+                  <span class="right badge badge-danger">New</span>
+                </p>
               </a>
             </li>
           </ul>
@@ -150,30 +154,78 @@
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-book"></i>
             <p>
-              Paginas
+              Trabajo
               <i class="fas fa-angle-left right"></i>
             </p>
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/examples/invoice.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Invoice</p>
+              <a routerLink="/selectExistingBridges" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>Nuevo registro</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="pages/examples/profile.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Profile</p>
+              <a routerLink="/selectBridge" class="nav-link">
+                <i class="nav-icon fas fa-edit"></i>
+                <p>
+                  Puentes en proceso
+                  <span class="badge badge-info right">{{
+                    bridges.length
+                  }}</span>
+                </p>
               </a>
             </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-search"></i>
+            <p>
+              Foro
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="pages/examples/e-commerce.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>E-commerce</p>
+              <a routerLink="/all-registrations" class="nav-link">
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Registros
+                  <span class="right badge badge-danger">New</span>
+                </p>
               </a>
             </li>
+          </ul>
+        </li>
 
+        <li class="nav-item" *ngIf="isAdmin">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+              Usuarios
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a routerLink="/new-admin" class="nav-link">
+                <i class="far fa-user nav-icon"></i>
+                <p>Crear Administrador</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-book"></i>
+            <p>
+              Otros
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
             <li class="nav-item">
               <a href="pages/examples/contacts.html" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
@@ -188,30 +240,8 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-search"></i>
-            <p>
-              Buscar
-              <i class="fas fa-angle-left right"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="pages/search/simple.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Simple Search</p>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a href="pages/search/enhanced.html" class="nav-link">
-                <i class="far fa-circle nav-icon"></i>
-                <p>Enhanced</p>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-header">MISCELLANEOUS</li>
+
+        <li class="nav-header">DIVERSO</li>
         <li class="nav-item">
           <a href="https://adminlte.io/docs/3.1/" class="nav-link">
             <i class="nav-icon fas fa-file"></i>

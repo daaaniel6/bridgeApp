@@ -9,6 +9,7 @@ export const environment = {
   bridgeURL: 'http://localhost:8080/api/bridges',
   departamentURL: 'http://localhost:8080/api/departaments',
   imagesURL: 'http://localhost:8080/api/images',
+  documentsURL: 'http://localhost:8080/api/documents',
   commentsURL: 'http://localhost:8080/api/comments',
 };
 

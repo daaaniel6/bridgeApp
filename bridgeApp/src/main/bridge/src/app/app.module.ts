@@ -114,6 +114,9 @@ import { ImageComponent } from './pages/image/image.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { RegisterTableComponent } from './pages/bridge/register-table/register-table.component';
 import { ForumComponent } from './pages/forum/forum.component';
+import { NewAdminComponent } from './pages/new-admin/new-admin.component';
+import { DeleteBridgeComponent } from './pages/bridge/delete-bridge/delete-bridge.component';
+import { ViewRegisterComponent } from './components/view-register/view-register.component';
 
 @NgModule({
   declarations: [
@@ -168,6 +171,9 @@ import { ForumComponent } from './pages/forum/forum.component';
     GalleryComponent,
     RegisterTableComponent,
     ForumComponent,
+    NewAdminComponent,
+    DeleteBridgeComponent,
+    ViewRegisterComponent,
   ],
   imports: [
     BrowserModule,

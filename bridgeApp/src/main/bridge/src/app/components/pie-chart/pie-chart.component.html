@@ -2,9 +2,8 @@
 <!-- [view]="view" -->
 <div class="graphical-container">
   <ngx-charts-advanced-pie-chart
-    scheme="cool"
+    [scheme]="colorScheme"
     [results]="single"
-    [gradient]="gradient"
     (select)="onSelect($event)"
     (activate)="onActivate($event)"
     (deactivate)="onDeactivate($event)"
