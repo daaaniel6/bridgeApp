@@ -22,6 +22,7 @@ import { SteelRow } from 'src/app/models/bridge/steel-row';
 import { Stretch } from 'src/app/models/bridge/stretch';
 import { Superstructure } from 'src/app/models/bridge/superstructure';
 import { Support } from 'src/app/models/bridge/support';
+import { Image } from 'src/app/models/image/image';
 import { User } from 'src/app/models/user/user';
 import { AuthService } from 'src/app/services/auth.service';
 import { BridgeService } from 'src/app/services/bridges/bridge.service';
@@ -150,6 +151,8 @@ export class ExistingBridgesComponent implements OnInit {
   channel: Channel = {};
   other: Other = {};
 
+  imageList: Image[] = [];
+
   public form: FormGroup = this.formBuilder.group({});
 
   ngOnInit(): void {
@@ -189,6 +192,7 @@ export class ExistingBridgesComponent implements OnInit {
       ],
       channelChannelId: [this.channel],
       otherOtherId: [this.other],
+      imageList: [this.imageList],
     });
   }
 
